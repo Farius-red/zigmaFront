@@ -1,0 +1,40 @@
+@import "/src/theme/_funtions.scss";
+@import "/src/theme/componentes/varthemes.scss";
+
+.contenedor-grid{
+    @include responsive(sm){@include  grid(2,1fr,0px,3);};
+    @include responsive(md){@include grid(2,1fr,0px,3);};
+    @include responsive(lg){@include grid(2,1fr,0px,3);};
+    
+ background-color:rgba(249, 246, 255);
+    background: $fondo3;
+    
+    box-shadow: $sombra1;
+ 
+
+     .item{
+
+       &1{
+           grid-column: span 2;
+           grid-row: 2/4;
+           height: 200px;
+           border: 2px solid white;
+           background-color: white;
+            
+       }
+       &2{
+        background:$fondo3;
+        color: $colorTextos3;
+       }
+
+       &4{
+        background:white;
+        grid-column: span 2;
+        grid-row: 4/5;
+       }
+       &5{
+         grid-column: 2;
+         grid-row: 1;
+       }
+    }
+}

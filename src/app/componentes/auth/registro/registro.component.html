@@ -1,0 +1,77 @@
+
+<ion-content>
+
+<ion-row style="margin-top: 10%;">
+  <ion-col size="12" size-lg="6">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">{{"menu.register" | translate}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+          <form [formGroup]="formRegisterU" > 
+            <ion-item>
+              <ion-label position="floating" > {{"auth.firtsName" | translate}} </ion-label>
+              <ion-input  formControlName="nombres"></ion-input>
+              <!-- <ion-text color="danger">error campo requerido</ion-text>
+              <ion-icon color="danger" name="alert-circle-outline"></ion-icon> -->
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating"> {{"auth.secondName" | translate}}</ion-label>
+               <ion-input formControlName="apellidos"></ion-input>
+              <!-- <ion-text color="danger">*</ion-text>  -->
+            </ion-item>
+           
+            <ion-item>
+              <ion-label position="floating"> {{"auth.phone" | translate}} </ion-label>
+              <ion-input  formControlName="telefono" type="tel"></ion-input>
+              <!-- <ion-text color="danger">*</ion-text>
+              <ion-icon color="danger" name="alert-circle-outline"></ion-icon> -->
+            </ion-item>
+            
+            <ion-item>
+              <ion-label position="floating"> {{"auth.Nickname" | translate}}</ion-label>
+               <ion-input formControlName="nickname"></ion-input>
+              <!-- <ion-text color="danger">*</ion-text>  -->
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating"> Email </ion-label>
+              <ion-input formControlName="email" type="email" ></ion-input>
+              <!-- <ion-text color="danger">*</ion-text>
+              <ion-icon color="danger" name="alert-circle-outline"></ion-icon> -->
+            </ion-item>
+            
+            <ion-item >
+              <ion-label position="floating">password </ion-label>
+              <ion-input  formControlName="password" type="password"></ion-input>
+              <!-- <ion-text color="danger">*</ion-text>
+              <ion-icon color="danger" name="alert-circle-outline"></ion-icon> -->
+            </ion-item>
+
+            <ion-item >
+              <ion-label position="floating"> Confirmar password </ion-label>
+              <ion-input  formControlName="confirmPassword" type="password"></ion-input>
+              <!-- <ion-text color="danger">*</ion-text>
+              <ion-icon color="danger" name="alert-circle-outline"></ion-icon> -->
+            </ion-item>
+                  
+            <ion-row>
+              <ion-col size="8">
+                 <ion-button (click)="add()" [disabled]="formRegisterU.invalid">
+                   {{"menu.register" | translate}}
+                 </ion-button>
+              </ion-col>
+            </ion-row>
+          </form>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-col>
+
+  <ion-col size="12"  size-lg="6">
+     <ion-img src="assets/imagenes/imagenLogin.jpg"></ion-img>
+  </ion-col>
+</ion-row>
+
+</ion-content>

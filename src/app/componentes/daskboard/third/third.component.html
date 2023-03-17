@@ -1,0 +1,249 @@
+<div *ngIf="!isEdit" class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-info">
+                        <h4 class="card-title">Crear</h4>
+                        <button (click)="Listar()" class="btn btn-primary btn-sm"> 
+                  Editar 
+                </button>
+                        <p class="card-category">Creacion De Terceros</p>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-5">
+                                  <mat-form-field class="example-full-width">
+                                 <input matInput placeholder="Documento" type="text" class="form-control"  [(ngModel)]="third.documento" name="documento">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-5">
+                                  <mat-form-field class="example-full-width">                 
+                                <input matInput placeholder="Digito de verificación" type="text" class="form-control"  [(ngModel)]="third.vd" name="vd">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-5">
+                                  <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Primer Nombre" type="text" class="form-control"  [(ngModel)]="third.firsname" name="firsname">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-5">
+                                  <mat-form-field class="example-full-width">
+                                 <input matInput placeholder="Segundo Nombre" type="text" class="form-control"  [(ngModel)]="third.secondname" name="secondname">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-5">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Primer Apellido" type="text" class="form-control"  [(ngModel)]="third.firstsurname" name="firstsurname">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-5">
+                                  <mat-form-field class="example-full-width">
+                               <input matInput placeholder="Segundo Apellido" type="text" class="form-control"  [(ngModel)]="third.secondsurname" name="secondsurname">
+                                    </mat-form-field>
+                                </div>
+                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg Estado"    [(ngModel)]="third.estado" name="estado">
+                                  <option selected>Estado</option>
+                                  <option value="1">Activo</option>
+                                  <option value="2">Inactivo</option>
+                
+                                  </select>
+  
+  
+                                <div class="col-md-5">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Dirección" type="text" class="form-control"  [(ngModel)]="third.direction" name="direction">
+  
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Email" type="email" class="form-control"  [(ngModel)]="third.email" name="email">
+  
+                                  </mat-form-field>
+                              </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                      
+                                      <input matInput placeholder="Telefono" type="tel" class="form-control"  [(ngModel)]="third.phone" name="telefono">
+  
+                                    </mat-form-field>
+                                </div>
+                          
+                            </div>
+                  
+                            <div class="row">
+                                <div class="col-md-12">
+                                  <label>Descripción</label>
+                                  <mat-form-field class="example-full-width">
+                                     <textarea matInput placeholder="Acerca del tercero" type="text" class="form-control"  [(ngModel)]="third.about" name="about">></textarea>
+                                
+                                   </mat-form-field>
+                                    <!-- <div class="form-group">
+  
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                                            <textarea class="form-control" rows="5"></textarea>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+
+                        
+                        
+                      <button (click)="SaveThird()" class="btn btn-danger">Guardar</button>
+                           
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card card-plain">
+                        <div class="card-header card-header-info">
+                            <h4 class="card-title mt-0"> Table on Plain Background</h4>
+                            <p class="card-category"> Here is a subtitle for this table</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead class="">
+                                        <th>
+                                            ID
+                                        </th>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Country
+                                        </th>
+                                        <th>
+                                            City
+                                        </th>
+                                        <th>
+                                            Salary
+                                        </th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                1
+                                            </td>
+                                            <td>
+                                                Dakota Rice
+                                            </td>
+                                            <td>
+                                                Niger
+                                            </td>
+                                            <td>
+                                                Oud-Turnhout
+                                            </td>
+                                            <td>
+                                                $36,738
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                2
+                                            </td>
+                                            <td>
+                                                Minerva Hooper
+                                            </td>
+                                            <td>
+                                                Curaçao
+                                            </td>
+                                            <td>
+                                                Sinaai-Waas
+                                            </td>
+                                            <td>
+                                                $23,789
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                3
+                                            </td>
+                                            <td>
+                                                Sage Rodriguez
+                                            </td>
+                                            <td>
+                                                Netherlands
+                                            </td>
+                                            <td>
+                                                Baileux
+                                            </td>
+                                            <td>
+                                                $56,142
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                4
+                                            </td>
+                                            <td>
+                                                Philip Chaney
+                                            </td>
+                                            <td>
+                                                Korea, South
+                                            </td>
+                                            <td>
+                                                Overland Park
+                                            </td>
+                                            <td>
+                                                $38,735
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                5
+                                            </td>
+                                            <td>
+                                                Doris Greene
+                                            </td>
+                                            <td>
+                                                Malawi
+                                            </td>
+                                            <td>
+                                                Feldkirchen in Kärnten
+                                            </td>
+                                            <td>
+                                                $63,542
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                6
+                                            </td>
+                                            <td>
+                                                Mason Porter
+                                            </td>
+                                            <td>
+                                                Chile
+                                            </td>
+                                            <td>
+                                                Gloucester
+                                            </td>
+                                            <td>
+                                                $78,615
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="form-group">
+     
+         </div>
+  </div>
+  
+  <div *ngIf="isEdit">
+    <app-third-add-form  ></app-third-add-form>
+  </div>
+
+  

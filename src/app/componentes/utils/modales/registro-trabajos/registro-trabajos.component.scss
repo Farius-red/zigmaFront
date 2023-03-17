@@ -1,0 +1,40 @@
+/* Structure */
+table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+ 
+  .mat-elevation-z8{
+    width: 80%;
+  } 
+  tr:hover {
+    background: whitesmoke;
+  }
+  
+  tr:active {
+    background: #efefef;
+  }
+
+  .mat-mdc-row .mat-mdc-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+  }
+  
+  .text{
+    width: 70%;
+  }
+  .mat-mdc-row:hover .mat-mdc-cell {
+    border-color: currentColor;
+  }
+  
+  .demo-row-is-clicked {
+    font-weight: bold;
+  }
+
+

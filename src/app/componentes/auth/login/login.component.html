@@ -1,0 +1,41 @@
+<ion-content>
+
+
+<ion-row style="margin-top: 10%;">
+  <ion-col size="12" size-lg="6">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title text-center>{{"menu.login" | translate}}</ion-card-title>
+        <ion-card-subtitle ion-text-center>{{"auth.write_your_data" | translate}}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+          <form [formGroup]="formLogin" > 
+            
+            <ion-item>
+              <ion-label style="margin-bottom: 3%;" position="floating"> {{"auth.Nickname" | translate}}</ion-label>
+               <ion-input formControlName="nickname"></ion-input>
+              <!-- <ion-text color="danger">*</ion-text>  -->
+            </ion-item>
+
+         
+            
+            <ion-item >
+              <ion-label  style="margin-bottom: 3%;"  position="floating">password </ion-label>
+              <ion-input formControlName="password" type="password"></ion-input>
+            </ion-item>
+             <ion-button (click)="login()" [disabled]="formLogin.invalid">
+               {{"menu.login" | translate}}
+             </ion-button>
+          </form>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-col>
+
+  <ion-col style="height: 80%;" size="12"  size-lg="6">
+     <ion-img src="assets/imagenes/imagenLogin.jpg"></ion-img>
+  </ion-col>
+</ion-row>
+
+</ion-content>

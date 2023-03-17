@@ -1,0 +1,81 @@
+[
+    {   "idProducto":"1",
+        "idBussines": 1,
+        "idCategorie": 1,
+        "name":"Phineas y Ferb",
+        "price_cop":5600000,
+        "price_USD":2300,
+       "amount":0,
+       "description":" Mini tobogan con medidas de 5x4x4.5 cuenta con zona de brinco escalera y dos rodaderos",
+       "ulrProduct":"/src/assets/imagenes/inflables/productos/marvel1.png",
+       "state":1,
+       "country":1,
+       "creator":"Daniel Juliao"
+},
+
+{
+    "idProducto":"2",
+    "idBussines": 1,
+
+    "idCategorie": 1,
+    "name":"Marvel",
+    "price_cop":5600000,
+    "price_USD":2300,
+   "amount":0,
+   "description":" Mini tobogan con medidas de 5x4x4.5 cuenta con zona de brinco escalera y dos rodaderos",
+   "ulrProduct":"/src/assets/imagenes/inflables/productos/marvel1.png",
+   "state":1,
+   "country":1,
+   "creator":"Daniel Juliao"
+},
+
+{
+    "idProducto":"3",
+    "idBussines": 1,
+
+    "idCategorie": 1,
+    "name":"Tobogan Mixto ",
+    "price_cop":5600000,
+    "price_USD":2300,
+   "amount":0,
+   "description":" Mini tobogan con medidas de 5x4x4.5 cuenta con zona de brinco escalera y dos rodaderos",
+   "ulrProduct":"/src/assets/imagenes/inflables/productos/ToboganInflable4.5ninosyninas.jpg",
+   "state":1,
+   "country":1,
+   "creator":"Daniel Juliao"
+},{
+    "idProducto":"4",
+    "idBussines": 1,
+
+    "idCategorie": 2,
+    "name":"Castillo palmeras",
+    "price_cop":4200.000,
+    "price_USD":1500,
+   "amount":0,
+   "description":" Castillo con medidas de 3x5x2.5 cuenta con zona de brinco escalera y tobogan",
+   "ulrProduct":"/src/assets/imagenes/inflables/productos/castilloInflablePalmeras.jpg",
+   "state":1,
+   "country":1,
+   "creator":"Daniel Juliao"
+},
+{
+    "idProducto":"5",
+    "idBussines": 1,
+
+    "idCategorie": 2,
+    "name":"Castillo Tobogan",
+    "price_cop":4700000,
+    "price_USD":1900,
+   "amount":0,
+   "description":" Mini tobogan castillo con medidas de 4x4x4.5 cuenta con zona de brinco escalera y un rodadero",
+   "ulrProduct":"/src/assets/imagenes/inflables/productos/castilloInflable4x4Tobogan.jpg",
+   "state":1,
+   "country":1,
+   "creator":"Daniel Juliao"
+}
+
+
+
+
+   
+]

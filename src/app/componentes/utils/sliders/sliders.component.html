@@ -1,0 +1,77 @@
+
+  <ion-item lines="none">
+    <ion-icon slot="start" name="heart-empty"></ion-icon>
+  </ion-item>
+
+
+  <div id="kiko-slider">
+
+    <ul class="slider">
+        <li id="slide1"  [ngStyle]="{'opacity': slider == 1  ? 1: 0} ">
+           
+            <img src="../../../../../assets/imagenes/inflables/guiasCosturaInflables/junglaGiaCostura.png" />
+        </li>
+        <li id="slide2" [ngStyle]="{'opacity': slider == 2  ? 1: 0} ">
+            <img src="../../../../../assets/imagenes/inflables/guiasCosturaInflables/disenioJungla2.png" />
+        </li>
+    </ul>
+
+    <ul class="menu">
+        <li>
+            <ion-button  (click)="cambiarOpacidad(1)">
+              1
+            </ion-button>
+        </li>
+        <li>
+          <ion-button (click)="cambiarOpacidad(2)" >
+            2
+          </ion-button>
+        </li>
+        <li>
+          <ion-button >
+            3
+          </ion-button>
+        </li>
+        <li>
+          <ion-button >
+            3
+          </ion-button>
+        </li>
+        <li>
+          <ion-button >
+            3
+          </ion-button>
+        </li>
+        <li>
+          <ion-button >
+            3
+          </ion-button>
+        </li>
+        <li>
+          <ion-button >
+            3
+          </ion-button>
+        </li>
+        <li>
+          <ion-button >
+            3
+          </ion-button>
+        </li>
+        <li>
+          <ion-button >
+            3
+          </ion-button>
+        </li>
+        <li>
+          <ion-button >
+            3
+          </ion-button>
+        </li>
+    </ul>
+
+</div>
+
+<div style="display: none;">
+    <a href="https://kikopalomares.com/" target="_blank">Powered by Kiko Palomares</a>
+</div>
+

@@ -1,0 +1,46 @@
+[
+    {"id_material": 1,
+    "id_colores": [
+        {  "id_color":1,  "nombre_color": "negro",  "estado":"disponible"}
+    ],
+    "descripcion":"Estructura"
+    },
+
+    {"id_material": 2,
+    "id_colores": [
+     {"id_color":17,"nombre_color": "rojo", "estado":"disponible"},
+     {"id_color":2,"nombre_color": "naranja", "estado":"disponible"},
+     {"id_color":3,"nombre_color": "azul oscuro", "estado":"disponible"},
+     {"id_color":4,"nombre_color": "verde militar", "estado":"disponible"},
+     {"id_color":5,"nombre_color": "amarillo claro", "estado":"disponible"}
+    
+    ],
+    "descripcion":"lona"
+    },
+    {
+    "id_material": 3,
+    "id_colores": [
+     { "id_color":1,"nombre_color": "negro",  "estado":"disponible"},
+     {"id_color":3,"nombre_color": "azul oscuro", "estado":"disponible"},
+     {"id_color":4,"nombre_color": "verde militar", "estado":"disponible"},
+     {"id_color":6,"nombre_color": "naranja ladrillo", "estado":"disponible"},
+    
+     {"id_color":7,"nombre_color": "azul rey", "estado":"disponible"},
+     {"id_color":8,"nombre_color": "amarillo neon", "estado":"disponible"},
+     {"id_color":9,"nombre_color": "amarillo pollito", "estado":"disponible"},
+     {"id_color":10,"nombre_color": "verde pistacho", "estado":"disponible"},
+     {"id_color":11,"nombre_color": "verde cali", "estado":"disponible"},
+     {"id_color":12,"nombre_color": "Azul acueducto", "estado":"disponible"},
+     {"id_color":13,"nombre_color": "morado", "estado":"disponible"},
+     {"id_color":14,"nombre_color": "fuctsia", "estado":"disponible"},
+     {"id_color":15,"nombre_color": "blanco", "estado":"disponible"},
+     {"id_color":16,"nombre_color": "vinotinto", "estado":"disponible"},
+     {"id_color":17,"nombre_color": "rojo", "estado":"disponible"},
+     {"id_color":18,"nombre_color": "cafe", "estado":"disponible"},
+     {"id_color":19,"nombre_color": "gris", "estado":"disponible"} 
+    ],
+    "descripcion":"morral"
+    }
+
+
+]

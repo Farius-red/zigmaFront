@@ -1,0 +1,41 @@
+[
+    {
+        "icon": "home-outline",
+        "name": "menu.start",
+        "redirecto": "/inicio",
+        "nameRol":"[user,admin]"
+    },
+   {
+           "icon": "log-out-outline",
+           "name": "menu.login",
+           "redirecto": "/auth/login",
+           "nameRol":"[user,admin]"
+   } ,
+   
+    {
+    "icon": "person-add-outline",
+    "name": "menu.register",
+    "redirecto": "/auth/registro",
+    "nameRol":"[user,admin]"
+    }, 
+
+    {
+        "icon": "log-out-outline",
+        "name": "menu.log_out",
+        "redirecto": "/auth/cerrarSesion",
+        "nameRol":"[user,admin]"
+        } ,
+
+
+        {
+            "icon": "call-outline",
+            "name": "menu.list_user",
+            "redirecto": "/admin/listaUsuarios",
+            "nameRol":"[admin]"
+            }
+    
+
+]
+
+
+ 

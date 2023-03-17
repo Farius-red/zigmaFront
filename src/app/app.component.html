@@ -1,0 +1,48 @@
+
+
+<ion-app>
+  <ion-menu side="start" menuId="inicio" contentId="inicio">
+    
+    <ion-content>
+        <div class="menu-header-bg"></div>
+      <div class="header-content">
+        <img src="../assets/imagenes/user.png" alt="">
+        <ion-label>
+          <h2 [translate]="'index'">prueba</h2>
+          <p>Empresa de software</p>
+        </ion-label>
+      </div>
+        <!-- <ion-toolbar color="primary">
+          <ion-title [translate]="'index'">Juliao System - Inicio</ion-title>
+        </ion-toolbar> -->
+     
+      <ion-list class="menu-items" lines="none">
+
+  <ion-menu-toggle *ngFor="let c of menu$  | async ;  " >
+        <ion-item [routerLink]="c.redirecto" routerLinkActive="router-link-active">
+        <ion-icon slot="start" [name]="c.icon"></ion-icon>
+            {{ c.name | translate}}
+    </ion-item>
+</ion-menu-toggle>
+
+
+</ion-list>
+<div class="lenguage">
+
+  <ion-item>
+    
+    <ion-select placeholder="{{'lenguage'| translate}}"   [(ngModel)]="seleccionada" (ionChange)=cambiaLang(seleccionada) >
+      <ion-select-option *ngFor="let i of langs"  [value]="i">{{i}}</ion-select-option>
+      
+    </ion-select>
+  </ion-item>
+</div>
+</ion-content>
+</ion-menu>
+
+  <ion-router-outlet id="inicio"></ion-router-outlet>
+
+  
+   
+  
+</ion-app>

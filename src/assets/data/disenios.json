@@ -1,0 +1,134 @@
+[ 
+    {
+        "id": "A-001",
+        "nombrePieza": "1",
+        "cantidad":4,
+        "color": "",
+        "material":3,
+        "medida":"molde"
+    },
+    {
+        "id": "A-001",
+       
+        "nombrePieza": "2",
+        "cantidad":4,
+        "color": "",
+        "material":3,
+        "medida":" 252.4 x 142.4"
+    },
+    {
+        "id": "A-001",
+        "nombrePieza": "3",
+        "cantidad":2,
+        "color": "",
+        "material":3,
+        "medida":"impresion"
+    },
+    {
+        "id": "A-001",
+       
+        "nombrePieza": "4",
+        "cantidad":2,
+        "color": "",
+        "material":3,
+        "medida":"300.2 x 42.4"
+    },
+    {
+        "id": "A-001",
+        "nombrePieza": "4a",
+        "cantidad":"",
+        "color": "",
+        "material":3,
+        "medida":"300.2 x 42.4"
+    },
+    { 
+        "id": "A-001",
+       
+        "nombrePieza": "5",
+        "cantidad": 1,
+        "color": "",
+        "material":3,
+        "medida":"impresion"
+    },
+    {
+        "id": "A-001",
+        "nombrePieza": "6",
+        "cantidad":1,
+        "color": "",
+        "material":3,
+        "medida":"564.1x42.4"
+    },
+    {
+        "id": "A-001",
+       
+        "nombrePieza": "7",
+        "cantidad":1,
+        "color": "",
+        "material":3,
+        "medida":"522.4x42.4"
+    },
+    {
+        "id": "A-001",
+        "nombrePieza": "8",
+        "cantidad":4,
+        "color": "",
+        "material":3,
+        "medida":"102.4x42.4"
+    },
+    {
+        "id": "A-001",
+       
+        "nombrePieza": "9",
+        "cantidad":4,
+        "color": "impresion",
+        "material":3,
+        "medida":"102.4x42.4"
+    },
+    {
+        "id": "A-001",
+        "nombrePieza": "10",
+        "cantidad":3,
+        "color": "",
+        "material":3,
+        "medida":"122.4x102.4"
+    },
+    {
+        "id": "A-001",
+       
+        "nombrePieza": "11",
+        "cantidad":1,
+        "color": "impresion",
+        "material":3,
+        "medida":"142.4x97.4"
+    },
+    {
+        "id": "A-001",
+        "nombrePieza": "11a",
+        "cantidad":1,
+        "color": "",
+        "material":3,
+        "medida":"142.4x97.4"
+    },
+    {
+        "id": "A-001",
+       
+        "nombrePieza": "12",
+        "cantidad":1,
+        "color": "",
+        "material":3,
+        "medida":"99.1x42.4"
+    },
+    {
+        "id": "A-001",
+        "nombrePieza": "13",
+        "cantidad":2,
+        "color": "impresion",
+        "material":3,
+        "medida":"377.8x91.7"
+    }
+
+
+   
+    
+
+]

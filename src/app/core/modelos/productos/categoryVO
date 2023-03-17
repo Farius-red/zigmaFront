@@ -1,0 +1,11 @@
+import {TypeCategorieVO} from "./typeCategorieVO";
+
+export interface CategoryVO{
+    idCategorie :number;
+    idTypeCategorie:number;
+
+    nameCategori:string;
+    urlImage: string;
+
+    typeCategorieVO:TypeCategorieVO;
+}

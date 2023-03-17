@@ -1,0 +1,12 @@
+@import "/src/theme/_funtions.scss";
+@import "/src/theme/componentes/varthemes.scss";
+
+.contenedorGrid{
+    @include responsive(sm){@include  grid(1,1fr,20px,2);};
+    @include responsive(md){@include grid(2,1fr,20px,2);};
+    @include responsive(lg){@include grid(2,1fr,20px,2);};
+    
+    background: white ;
+
+    
+}
