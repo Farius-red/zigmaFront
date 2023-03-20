@@ -1,25 +1,160 @@
-<ion-content>
-    <div class="contenedor-grid">
-        <div class="item5">
-            <app-header  [menuId]="menuId"></app-header>
+<ion-content [fullscreen]="true">
     
-        </div>
-      
-        <div class="item1">
-            1
-        </div>
-        <div class="item2">
-           
-        </div>
-     
+    <ion-header>
+        <ion-toolbar>
+            <ion-title>Header</ion-title>
+        </ion-toolbar>
+    </ion-header>
         
-        <div class="item4">
-            <app-card-padre></app-card-padre>
-          
+    <ion-grid fixed>
+        <ion-row> 
+            <ion-col size="9">
+                
+                <div class="header">
+                    <ion-grid fixed>
+                        <ion-row>
+                            <ion-col size="6"> <h2>probando</h2></ion-col>
+                            <ion-col size="6">
+                               
+                                    <div class="content-card-header">
+
+                                        <ion-fab-button >
+                                           
+                                            <ion-icon name="cart-outline"></ion-icon>
+                                        </ion-fab-button>
+                                    
+
+                                    
+                                         <div class="carrito1">
+                                            <p style="text-align: center;">precio</p>
+                                         </div>
+                                    </div>
+                               
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                 
+                </div>
+            </ion-col>
+            <ion-col size="3">
+                
+                <app-header  [menuId]="menuId"></app-header>
+            </ion-col>
+
+        </ion-row>
+    </ion-grid>
+<ion-grid >
+    <ion-row >
+              
+        <ion-col size="12">
+
+            <ion-slides    mode="ios"  pager="true" [options]="slideOpts">
+                <ion-slide *ngFor="let img of imagenes" >
+                    <div class="containerimg">
+
+                        <img style="  height:auto; width:100vh; border-radius: 15px;" [src]="img.src" [alt]="img.alt">
+                    </div>
+                </ion-slide>
+                
+              </ion-slides>
+        
+        </ion-col>
+       
+    </ion-row>
+</ion-grid>
+ 
+
+    
+        
+               <div class="content-cards">
+                <div class="wave">
+                    </div>
+                <ion-grid style="padding-bottom: 15%; padding-top: 15%;" fixed>
+                    
+               
+                 <ion-row style="margin-top: 10%;">
+                    <ion-col  size="12" size-lg="3">
+                        <div class="contenedorsubmenu">
+                            <ion-list-header mode="ios" class="listHedeader">
+                                <ion-label> Inflables y Servicios</ion-label>
+                                
+                            </ion-list-header>
+                            <ion-list-header>
+                                <ion-label>Publicitarios</ion-label>
+                              </ion-list-header>
+                              <ion-list-header >
+                                <ion-label>Recreativos</ion-label>
+                              </ion-list-header>
+                              <ion-list-header >
+                                <ion-label>En Stock</ion-label>
+                              </ion-list-header>
+                              <ion-list-header >
+                                <ion-label>Alquileres</ion-label>
+                              </ion-list-header>
+
+                              <ion-list-header >
+                                <ion-label>Ventas</ion-label>
+                              </ion-list-header>
+                        </div>
+                    </ion-col>
+                    <ion-col size="12" size-lg="3">
+                        <ion-card mode="ios">
+                            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                            <ion-card-header>
+                              <ion-card-title>Card Title</ion-card-title>
+                              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+                            </ion-card-header>
+                          
+                            <ion-card-content>
+                              Here's a small text description for the card content. Nothing more, nothing less.
+                            </ion-card-content>
+                          </ion-card>
+                    </ion-col>
+                    <ion-col size="12" size-lg="3">
+                        <ion-card>
+                            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                            <ion-card-header>
+                              <ion-card-title>Card Title</ion-card-title>
+                              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+                            </ion-card-header>
+                          
+                            <ion-card-content>
+                              Here's a small text description for the card content. Nothing more, nothing less.
+                            </ion-card-content>
+                          </ion-card>
+                    </ion-col>
+
+                    <ion-col size="12" size-lg="3">
+                        <ion-card>
+                            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                            <ion-card-header>
+                              <ion-card-title>Card Title</ion-card-title>
+                              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+                            </ion-card-header>
+                          
+                            <ion-card-content>
+                              Here's a small text description for the card content. Nothing more, nothing less.
+                            </ion-card-content>
+                          </ion-card>
+                    </ion-col>
+                </ion-row> 
+            </ion-grid>
+              <div class="wave-abajo">
+
+              </div>
             
-        </div>
-    </div>
-    <app-footer></app-footer>
+            </div>
+         
+            
+        
+
+            
+    
+            
+             <app-footer></app-footer>
+  
 </ion-content>
+
+
 
 <!-- <app-card-products></app-card-products> -->

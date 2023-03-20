@@ -1,40 +1,100 @@
 @import "/src/theme/_funtions.scss";
 @import "/src/theme/componentes/varthemes.scss";
 
-.contenedor-grid{
-    @include responsive(sm){@include  grid(2,1fr,0px,3);};
-    @include responsive(md){@include grid(2,1fr,0px,3);};
-    @include responsive(lg){@include grid(2,1fr,0px,3);};
-    
- background-color:rgba(249, 246, 255);
-    background: $fondo3;
-    
-    box-shadow: $sombra1;
+.header {
+  border-radius: 25px;
+  background: $background4;
+  box-shadow:  20px 20px 60px #d5a409,
+               -20px -20px 60px #ffde0d;
+  width: 100%;
+  height: 100%;
+}
+
+
+.content-card-header {
+  display: flex;
+  flex-direction: row;
+align-items: center;
+justify-content: space-between; }
+
+.carrito1{
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background-color: white;
+  width: 79%;
+  height: 100%;
+}
+.content-cards{
+  position: relative;
+  width: 100%;
+  background-color:  #0093E9;
+
+
+}
+
+.wave-abajo{
+  position: absolute;
+  bottom: -14px;
+  left: 0;
+  height: 100px;
+  width: 100%;
+  background-image: url(../../../assets/imagenes/waveArriba.svg);
+  background-repeat: repeat-x;
+
+  animation: wave 20s linear infinite;
+}
+
+.wave{
+  position: absolute;
+  top: -14px;
+  left: 0;
+  height: 100px;
+  width: 100%;
+  background-image: url(../../../assets/imagenes/waveArriba.svg);
+  background-repeat: repeat-x;
+  transform: rotate(180deg);
+  animation: wave 20s linear infinite;
+}
+
+@keyframes wave {
+   0%{
+    background-position-x: 0;
+   }
+   100%{
+    background-position-x: 1000px; ;
+   }
+}
+.containerimg{
+  width: 100vh;
+ height: 300px;
+  
+}
+
+.listHedeader{
+  background-color: $background4;
+  color: black;
+  border-radius: 18px 18px 0px 0px ;
+  
+}
+.contenedorsubmenu{
+  background-color:white ;
+  border: 1px solid black;
+  border-radius: 18px;
+  width: 100%;
+  height: 400px;
+  padding: 5px, 5px ,5px ,5px;
+}
+ion-slides {
+width:100%;
+  height: 100%;
+}
+.img-slider{
+  height: 250px; 
+  width: 100%;
+  margin-top: 10%;
+  border-radius: 25px;
+  background-color: $background4;
  
 
-     .item{
-
-       &1{
-           grid-column: span 2;
-           grid-row: 2/4;
-           height: 200px;
-           border: 2px solid white;
-           background-color: white;
-            
-       }
-       &2{
-        background:$fondo3;
-        color: $colorTextos3;
-       }
-
-       &4{
-        background:white;
-        grid-column: span 2;
-        grid-row: 4/5;
-       }
-       &5{
-         grid-column: 2;
-         grid-row: 1;
-       }
-    }
 }
