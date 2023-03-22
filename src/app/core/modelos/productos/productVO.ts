@@ -2,7 +2,7 @@ export interface ProductVO{
  
  idProduct:string;
   idBussines: number;
-
+medidas?:string
   idCategorie: string;
   name:string;
   price_cop:number;

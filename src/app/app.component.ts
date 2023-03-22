@@ -1,5 +1,4 @@
 import { MenuModel } from './core/modelos/menu/menu.Model';
-import { MenuActive } from 'src/app/core/modelos/menu/menu.Model';
 import { MenuState } from 'src/state/menu.state';
 import { getMenu } from './../state/menu.actions';
 import { Component } from '@angular/core';
@@ -79,8 +78,7 @@ menuId:string ="inicio";
   configLangs() {
     // Add languages
     this.translate.addLangs(['en', 'es']);
-    // Buscar si el navegador informa el idioma
-    console.log(this.translate.getBrowserLang());
+  
     if (this.translate.getBrowserLang() == 'en') {
        this.translate.use('en');
      } else if (this.translate.getBrowserLang() == 'es') {
