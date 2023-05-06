@@ -11,6 +11,7 @@ import { MenuModel } from 'src/app/core/modelos/menu/menu.Model';
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements OnInit {
+
   menuId:string = "inicio"
   menu:Observable<MenuModel[]>
 
@@ -98,6 +99,12 @@ export class InicioPage implements OnInit {
 
   moverSlideAdelante(){
   }
-	
+
+	touchRedes(red: string) {
+  
+    if(red=="whatCol")window.open("https://wa.link/xsdfdu",'_blank' );
+    if(red=="whatEcu") window.open("https://wa.link/t4l0z0", '_blank');
+    
+    }
   
 }

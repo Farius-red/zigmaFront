@@ -24,6 +24,11 @@ export  class JuliaoSystemCrudHttpService<T> {
         return  this.http.post(this.basePathUrl+"/add",entidad,{});
         
     };
+
+    findById(id:number):Observable<T>{
+        return this.http.get<T>(this.basePathUrl+"/findById/"+id,{});
+
+    }
    
    
   //  remove(itemId: number): Promise<boolean>;

@@ -84,7 +84,15 @@ export class TablaPadreComponent implements OnInit {
 
   update(){}
   whatsapp(){}
-  importCvc($prueba){}
+  importCvc($prueba){
+    let file = $prueba.target.files[0];
+    if (file) {
+      let formData= new FormData();
+      formData.append('file',file)
+     console.log(formData );
+    }
+
+  }
   delete(){}
   add(){}
 

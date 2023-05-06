@@ -1,10 +1,10 @@
 $sizeScreen:(
-    sm:375px,
+    sm:400px,
     md:768px,
     lg:1024px,
 );
 @mixin responsive ($size) {
-    @media screen and (min-width:map-get($sizeScreen,$size) ) {
+    @media screen and (max-width:map-get($sizeScreen,$size) ) {
         @content;
        } 
 
@@ -32,3 +32,4 @@ $sizeScreen:(
     justify-content: $justify-content;
     align-items: $align-items;
 }
+
