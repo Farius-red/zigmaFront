@@ -91,3 +91,15 @@
    background-image: url(../../../../assets/imagenes/logoZigma.jpg);
 }
 
+.redes{
+ 
+ justify-content: center;
+   height: 70px;
+   width: 100%;
+   display: flex;
+   ion-icon {
+      font-size: 4rem;
+      cursor: pointer;
+   }
+}
+

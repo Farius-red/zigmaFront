@@ -10,5 +10,8 @@ export class FooterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {}
+  validarUrl(){
+    window.open("https://www.facebook.com/ZigmainflablesEcuador", '_blank');
+  }
 
 }
