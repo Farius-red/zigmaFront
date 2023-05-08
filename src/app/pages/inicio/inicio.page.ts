@@ -4,6 +4,7 @@ import { Observable, } from 'rxjs';
 import { MenuSvcService } from './../../core/servicios/menuSvc/menu-svc.service';
 import { Component, OnInit,  } from '@angular/core';
 import { MenuModel } from 'src/app/core/modelos/menu/menu.Model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio',
@@ -90,21 +91,27 @@ export class InicioPage implements OnInit {
   };
 
   constructor(private  menuSvc: MenuSvcService ,
-
+    private router: Router
     ) { }
 
   ngOnInit() {
-     
+      console.log(this.router.url)
   }
 
   moverSlideAdelante(){
   }
 
 	touchRedes(red: string) {
-  
-    if(red=="whatCol")window.open("https://wa.link/xsdfdu",'_blank' );
-    if(red=="whatEcu") window.open("https://wa.link/t4l0z0", '_blank');
-    
+   if(this.router.url == "/inicio/ecu"){
+   if(red=="whatsapp") window.open("https://wa.link/t4l0z0", '_blank');
+   if(red=="facebook")window.open("https://www.facebook.com/ZigmainflablesEcuador/",'_blank' );
+   if(red=="instagram")window.open("https://www.instagram.com/fabricantesdeinflableszigma/",'_blank' );
+   }
+   else{
+    if(red=="whatsapp")window.open("https://wa.link/xsdfdu",'_blank' );
+    if(red=="facebook")window.open("https://www.facebook.com/Zigmainflables/",'_blank' );
+    if(red=="instagram")window.open("https://www.instagram.com/zigmainflables/",'_blank' );
+   }
     }
   
 }
