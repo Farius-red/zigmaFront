@@ -8,8 +8,10 @@ import { IonicModule } from '@ionic/angular';
 import { AdminPageRoutingModule } from './admin-routing.module';
 
 import { AdminPage } from './admin.page';
+import { ListaRutinasComponent } from './wellnesfit/lista-rutinas/lista-rutinas.component';
 
 @NgModule({
+  declarations: [AdminPage,ListaRutinasComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -20,7 +22,8 @@ import { AdminPage } from './admin.page';
   ],
   exports:[
       AdminPage,
+      ListaRutinasComponent
   ],
-  declarations: [AdminPage]
+  
 })
 export class AdminPageModule {}

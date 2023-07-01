@@ -1,6 +1,6 @@
-import { getColoresyMateriales } from './../../../../../state/disenio.actions';
-import { TipoMaterialesModel } from './../../../../core/modelos/dising/tipoMateriales.Model';
-import { InflablesDisingModel } from './../../../../core/modelos/dising/inflablesDising.Model';
+
+import { TipoMaterialesModel } from '../../../../core/modelos/logicaNegocio/zigmainflables/dising/tipoMateriales.Model';
+import { InflablesDisingModel } from '../../../../core/modelos/logicaNegocio/zigmainflables/dising/inflablesDising.Model';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { StepperOrientation, STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
@@ -9,12 +9,13 @@ import { ModalController } from '@ionic/angular';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
-import { disenioState } from 'src/state/disenios.state';
-import { getDising } from 'src/state/disenio.actions';
+
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ColoresModel } from 'src/app/core/modelos/dising/colores.Model';
+import { ColoresModel } from 'src/app/core/modelos/logicaNegocio/zigmainflables/dising/colores.Model';
+import { getColoresyMateriales, getDising } from 'src/state/logicanegocio/zigmainflables/disenio.actions';
+import { disenioState } from 'src/state/logicanegocio/zigmainflables/disenios.state';
 
 
 export interface UserData {

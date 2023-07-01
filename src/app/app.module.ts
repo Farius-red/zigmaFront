@@ -1,4 +1,3 @@
-import { disenioState } from './../state/disenios.state';
 import { HTTP } from '@awesome-cordova-plugins/http/ngx';
 import { authInterceptorProviders } from './core/servicios/interceptors/auth.interceptor';
 import { UsuariosState } from './../state/usuarios.state';
@@ -23,6 +22,8 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { MenuState } from 'src/state/menu.state';
 import { ProductState } from 'src/state/productos.state ';
+import { disenioState } from 'src/state/logicanegocio/zigmainflables/disenios.state';
+import { RutinaState } from 'src/state/logicanegocio/wellnesfit/rutina.state';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -36,7 +37,7 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule, 
-    NgxsModule.forRoot([MenuState,ProductState,UsuariosState,disenioState],{
+    NgxsModule.forRoot([MenuState,ProductState,UsuariosState,disenioState,RutinaState],{
       developmentMode:!environment.production
     }),
    

@@ -1,11 +1,10 @@
-import { UserVO } from 'src/app/core/modelos/Usuarios/UserVO.Model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 
 
 
-export  class JuliaoSystemCrudHttpService<T> {
+export  class JuliaoSystemCrudHttpService<E> {
     protected http: HttpClient;
     basePathUrl: string;
     
@@ -14,20 +13,24 @@ export  class JuliaoSystemCrudHttpService<T> {
     findByName(itemId:string){
  
     };
-    findByIdBussines(idBussines: number ):Observable<T[]>{
+    findByIdBussines(idBussines: number ):Observable<E[]>{
 
-        return this.http.get<T[]>(this.basePathUrl+"/all/"+idBussines,{},);
+        return this.http.get<E[]>(this.basePathUrl+"/all/"+idBussines,{},);
     }
 
-    add(entidad: T){
+    add(entidad: E){
         
         return  this.http.post(this.basePathUrl+"/add",entidad,{});
         
     };
 
-    findById(id:number):Observable<T>{
-        return this.http.get<T>(this.basePathUrl+"/findById/"+id,{});
+    findById(id:number):Observable<E>{
+        return this.http.get<E>(this.basePathUrl+"/findById/"+id,{});
 
+    }
+
+    all():Observable<E>{
+        return this.http.get<E>(this.basePathUrl+"all/");
     }
    
    

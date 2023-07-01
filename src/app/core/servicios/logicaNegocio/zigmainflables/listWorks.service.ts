@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 import { JuliaoSystemCrudHttpService } from '../../crud/juliaoSystemCrudHttpService';
-import { TrabajosModel } from 'src/app/core/modelos/trabajos/Trabajos.model';
+import { TrabajosModel } from 'src/app/core/modelos/logicaNegocio/zigmainflables/trabajos/Trabajos.model';
+
 
 
 

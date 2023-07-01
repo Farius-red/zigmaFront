@@ -1,8 +1,8 @@
 
-import { InflablesDisingModel } from './../../modelos/dising/inflablesDising.Model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TipoMaterialesModel } from '../../modelos/dising/tipoMateriales.Model';
+import { InflablesDisingModel } from 'src/app/core/modelos/logicaNegocio/zigmainflables/dising/inflablesDising.Model';
+import { TipoMaterialesModel } from 'src/app/core/modelos/logicaNegocio/zigmainflables/dising/tipoMateriales.Model';
 
 @Injectable({
   providedIn: 'root'

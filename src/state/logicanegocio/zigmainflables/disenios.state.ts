@@ -1,9 +1,10 @@
-import { TipoMaterialesModel } from './../app/core/modelos/dising/tipoMateriales.Model';
-import { DisingsvcService } from './../app/core/servicios/disingSVC/disingsvc.service';
-import { InflablesDisingModel } from './../app/core/modelos/dising/inflablesDising.Model';
+
 import { getDising, getColoresyMateriales } from './disenio.actions';
 import { Injectable } from "@angular/core";
 import { Action, Selector, State, StateContext } from "@ngxs/store";
+import { InflablesDisingModel } from 'src/app/core/modelos/logicaNegocio/zigmainflables/dising/inflablesDising.Model';
+import { TipoMaterialesModel } from 'src/app/core/modelos/logicaNegocio/zigmainflables/dising/tipoMateriales.Model';
+import { DisingsvcService } from 'src/app/core/servicios/logicaNegocio/zigmainflables/disingSVC/disingsvc.service';
 
 
 export class InflablesDisingStateModel {
