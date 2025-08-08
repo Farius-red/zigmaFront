@@ -1,0 +1,21 @@
+<ion-content >
+    <ng-container *ngIf="plantillaResponse ">
+        
+        <ng-container *ngFor="let item of plantillaResponse.dataList">
+            <h1>{{item.idUrl}}</h1>
+            <ng-container *ngIf="listEjerciciosDataTabla">
+             
+                    <app-tabla-padre [plantillaTablas]="listEjerciciosDataTabla" [plantillaResponse]="listEjerciciosDataResponse"></app-tabla-padre>  
+              
+            </ng-container>
+           
+
+            
+        </ng-container>
+        
+    </ng-container>
+
+      
+    
+    <h1>Hola</h1>
+</ion-content>

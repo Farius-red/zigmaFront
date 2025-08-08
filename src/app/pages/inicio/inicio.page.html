@@ -1,25 +1,228 @@
-<ion-content>
-    <div class="contenedor-grid">
-        <div class="item5">
-            <app-header  [menuId]="menuId"></app-header>
-    
-        </div>
-      
-        <div class="item1">
-            1
-        </div>
-        <div class="item2">
-           
-        </div>
-     
+<ion-content [fullscreen]="true">
+  <div class="fondodeg"></div> 
+    <ion-fab slot="fixed" vertical="top" horizontal="start">
+        <ion-fab-button color="success">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list  side="end">
+          <ion-fab-button (click)="touchRedes('whatsapp')" >
+            <ion-icon color="success" name="logo-whatsapp"></ion-icon>
+          </ion-fab-button>       
+        </ion-fab-list>
+
+        <ion-fab-list side="bottom">
+          <ion-fab-button>
+            <ion-icon (click)="touchRedes('facebook')"  color="primary" name="logo-facebook"></ion-icon>
+          </ion-fab-button>
+      <ion-fab-button>
         
-        <div class="item4">
-            <app-card-padre></app-card-padre>
-          
+        <ion-icon (click)="touchRedes('instagram')" name="logo-instagram"></ion-icon>
+      </ion-fab-button>
+        </ion-fab-list>
+      </ion-fab>
+    
+    <ion-header>
+        <ion-toolbar>
             
-        </div>
-    </div>
-    <app-footer></app-footer>
+          <div class="contenedorTexto">
+            <h1>Zigma Inflables <span>&#160;</span></h1>
+          </div>
+        </ion-toolbar>
+    </ion-header>
+        
+    <ion-grid fixed>
+        <ion-row> 
+          
+            <ion-col size="9">
+            
+                <div class="header">
+                    <ion-grid fixed>
+                        <ion-row>
+                            <ion-col size="6">    <div class="logo">
+                
+                            </div></ion-col>
+                            <ion-col size="6">
+                               
+                                    <div class="content-card-header">
+
+                                        <!-- <ion-fab-button >
+                                           
+                                            <ion-icon name="cart-outline"></ion-icon>
+                                        </ion-fab-button> -->
+                                    
+
+                                    
+                                         <div class="carrito1">
+                                            <!-- <p style="text-align: center;">precio</p> -->
+                                         </div>
+                                    </div>
+                               
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                 
+                </div>
+            </ion-col>
+            <!-- <ion-col size="3">
+                
+                <app-header  [menuId]="menuId"></app-header>
+            </ion-col> -->
+
+        </ion-row>
+    </ion-grid>
+<ion-grid >
+    <ion-row >
+              
+        <ion-col size="12">
+
+            <ion-slides    mode="ios"  pager="true" [options]="slideOpts">
+                <ion-slide *ngFor="let img of imagenes" >
+                    <div class="containerimg">
+
+                        <img style="  height:auto; width:100vh; border-radius: 15px;" [src]="img.src" [alt]="img.alt">
+                    </div>
+                </ion-slide>
+                
+              </ion-slides>
+        
+        </ion-col>
+       
+    </ion-row>
+</ion-grid>
+ 
+
+    
+        
+               <div class="content-cards">
+                <div class="wave">
+                    </div>
+                <ion-grid style="padding-bottom: 15%; padding-top: 15%;" fixed>
+                    
+               
+                 <ion-row style="margin-top: 10%;">
+                    <ion-col  size="12" size-lg="3">
+                        <div class="contenedorsubmenu">
+                            <ion-list-header mode="ios" class="listHedeader" >
+                                <ion-label> Servicios</ion-label>
+                                
+                            </ion-list-header>
+                            <ion-list-header>
+                                <ion-label>Venta De Inflables</ion-label>
+                              </ion-list-header>
+            
+                              <ion-list-header >
+                                <ion-label>Alquileres</ion-label>
+                              </ion-list-header>
+                        </div>
+                    </ion-col>
+                    <ion-col *ngFor="let pro of productosVO" size="12" size-lg="3">
+                        <ion-card mode="ios">
+                            <img style="width: 100%;" [alt]="pro.name" [src]="pro.ulrProduct" />
+                            <ion-card-header >
+                              <ion-card-title style="font-size: 27px; width: 100%; height: 60px;">{{pro.name}}</ion-card-title>
+                              <ion-card-subtitle *ngIf="pro.medidas != undefined || pro.medidas != null"> {{pro.medidas}} </ion-card-subtitle>
+                            </ion-card-header>
+                          
+                            <ion-card-content style="height: 150px;">
+                              {{pro.description}}
+                            </ion-card-content>
+                          </ion-card>
+                    </ion-col>
+                  
+
+                 
+                </ion-row> 
+            </ion-grid>
+              <div class="wave-abajo">
+
+              </div>
+            
+            </div>
+         
+           <ion-row>
+            <ion-col size="12">
+              <div class="contenedor-imagenBanner">
+   <div id="whatsapp">
+  <a href="https://wa.link/t4l0z0" target="_blank">
+       <ion-icon  name="logo-whatsapp"></ion-icon>
+   </a>
+</div>
+                
+              
+             
+                                  </div>
+            </ion-col>
+
+      
+           </ion-row>
+                  
+              <ion-grid >
+                <ion-row>
+                  <ion-col size="12">
+                    <div class="quienSomos">
+                      <ion-button (click)="touchRedes('whatsapp')">
+                        <ion-icon  slot="start" name="add"></ion-icon>
+                       Alquiler De inflables
+                      </ion-button>
+
+                      <iframe src="../../../assets/videos/alquileresinflables1.mp4" 
+                      name="alquilerInflables" width="100%" height="80%" 
+                      style="border: solid #000000; margin: 0px;"
+                      frameborder="0" allowfullscreen="allowfullscreen"
+                      >
+                    </iframe>
+
+
+                    </div>
+                   
+                  </ion-col>
+     
+                   
+                  
+                 
+       
+    </ion-row>
+
+    <ion-row>
+      <div class="content-quienSomos">
+
+        <ion-col size="6">
+          <div style="">
+
+<h1 style="text-align: center; ">¿Quienes somos?</h1>
+</div>
+</ion-col>
+<ion-col size="6">
+  
+  <p style="text-align: center; font-family: Arial;  font-size: 130%; line-height: 150%;" >  Somos una empresa especializada en la fabricación de inflables de alta calidad y durabilidad para brindar horas de diversión segura a niños y adultos por igual. </p>
+  
+</ion-col>
+</div> 
+</ion-row>
+   
+  </ion-grid>
+     
+             
+     
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+      
+        <app-footer></app-footer>
+        
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid>
+            
+               
+      
+    
+            
+  
 </ion-content>
+
+
 
 <!-- <app-card-products></app-card-products> -->

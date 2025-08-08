@@ -13,7 +13,6 @@ import { HeaderComponent } from './inicio/header/header.component';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SwiperModule } from 'swiper/angular';
 
 import { RegistroComponent } from './auth/registro/registro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -53,7 +52,7 @@ import { CardTablasComponent } from './utils/cards/card-tablas/card-tablas.compo
     MaterialModule,
     FormsModule,
     TranslateModule,
-    SwiperModule,
+   
     
   ],
   exports:[
@@ -70,7 +69,7 @@ import { CardTablasComponent } from './utils/cards/card-tablas/card-tablas.compo
     RegistroTrabajosComponent,
     ModalPadreComponent,
     SlidersComponent,
-    SwiperModule,
+   
    
   ]
 })

@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { TablaPadreComponent } from '../../componentes/utils/tablas/tabla-padre.component';
 import { RegistroComponent } from 'src/app/componentes/auth/registro/registro.component';
 import { AdminPage } from './admin.page';
+import { ListaRutinasComponent } from './wellnesfit/lista-rutinas/lista-rutinas.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
        {
          path: 'listaUsuarios',
          component: TablaPadreComponent
+       },
+       {
+        path: 'wellnesfit/listaRutinas',
+         component: ListaRutinasComponent
        },
        {
          path: 'lista-trabajos',

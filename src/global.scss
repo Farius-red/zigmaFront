@@ -10,6 +10,8 @@
  */
 
 /* Core CSS required for Ionic components to work properly */
+@import "/src/theme/_funtions.scss";
+@import "/src/theme/componentes/varthemes.scss";
 @import "~@ionic/angular/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
@@ -43,3 +45,42 @@
     background: rgb(52, 51, 53)
 }
 
+
+.content-cards{
+    position: relative;
+    width: 100%;
+    background-color: $azulZimaColor;
+  }
+  
+  .wave-abajo{
+    position: absolute;
+    bottom: -14px;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    background-image: url(assets/imagenes/waveArriba.svg);
+    background-repeat: repeat-x;
+  
+    animation: wave 20s linear infinite;
+  }
+  
+  .wave{
+    position: absolute;
+    top: -14px;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    background-image: url(assets/imagenes/waveArriba.svg);
+    background-repeat: repeat-x;
+    transform: rotate(180deg);
+    animation: wave 20s linear infinite;
+  }
+
+  @keyframes wave {
+    0%{
+     background-position-x: 0;
+    }
+    100%{
+     background-position-x: 1000px; ;
+    }
+ }
