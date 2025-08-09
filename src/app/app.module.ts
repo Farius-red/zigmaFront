@@ -31,43 +31,39 @@ export function createTranslateLoader(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
-  imports: [
-    BrowserModule, 
-    IonicModule.forRoot(), 
-    AppRoutingModule, 
-    NgxsModule.forRoot([MenuState,ProductState,UsuariosState,disenioState,RutinaState],{
-      developmentMode:!environment.production
-    }),
-   
-    TranslateModule.forRoot({
-      loader: {
-          provide: TranslateLoader,
-          useFactory: (createTranslateLoader),
-          deps: [HttpClient]
-      }
-      
-    }),
-  NgxsReduxDevtoolsPluginModule.forRoot(),
-  NgxsLoggerPluginModule.forRoot(),
-   FormsModule,
-   ReactiveFormsModule,
-   HttpClientModule,
-   BrowserAnimationsModule,
-   MaterialModule,
-   ComponentesModule
-  ],
-
-  providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    authInterceptorProviders,
-    HTTP,
-   // { provide: HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true }
-  ],
-  exports:[
-    TranslateModule,
-  ],
-  bootstrap: [AppComponent],
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot(),
+        AppRoutingModule,
+        NgxsModule.forRoot([MenuState, ProductState, UsuariosState, disenioState, RutinaState], {
+            developmentMode: !environment.production
+        }),
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (createTranslateLoader),
+                deps: [HttpClient]
+            }
+        }),
+        NgxsReduxDevtoolsPluginModule.forRoot(),
+        NgxsLoggerPluginModule.forRoot(),
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        ComponentesModule
+    ],
+    providers: [
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+        authInterceptorProviders,
+        HTTP,
+        // { provide: HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true }
+    ],
+    exports: [
+        TranslateModule,
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {}

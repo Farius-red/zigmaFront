@@ -4,7 +4,7 @@ import { InflablesDisingModel } from '../../../../core/modelos/logicaNegocio/zig
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { StepperOrientation, STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs/internal/Observable';
@@ -72,7 +72,7 @@ worksFormGroup = this._formBuilder.group({
 
 
   constructor(private modalCtrl: ModalController, 
-    private _formBuilder: FormBuilder,
+    private _formBuilder: UntypedFormBuilder,
     private breakpointObserver: BreakpointObserver,
     private store : Store
     ) { 
