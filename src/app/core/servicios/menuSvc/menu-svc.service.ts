@@ -1,10 +1,9 @@
-import { async } from '@angular/core/testing';
 import { MenuActive, MenuModel } from './../../modelos/menu/menu.Model';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { observable, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
