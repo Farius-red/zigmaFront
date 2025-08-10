@@ -1,9 +1,15 @@
-@import "/src/theme/funtions";
-@import "/src//theme/componentes/varthemes.scss";
+@use "/src/theme/funtions" as func;
+@use "/src//theme/componentes/varthemes.scss" as vars;
 
 .contenedor-gridFooter{
- @include grid(2,1fr,0px,2);
- @include responsive(md){
+   background: vars.$background4;
+   border-radius: 0px 0px 15px 50px;
+   margin: 5%;
+   box-shadow: vars.$sombra1;
+   color: vars.$colorTextos3;
+   
+ @include func.grid(2,1fr,0px,2);
+ @include func.responsive(md){
    .wave-footer{
       top: -25px;
       margin-left:60%;
@@ -11,38 +17,31 @@
    }
     margin: 1%;
  }
- 
-   background: $background4;
-   border-radius: 0px 0px 15px 50px;
-   margin: 5%;
-
-   box-shadow: $sombra1;
-   color: $colorTextos3;
   
    ion-icon{
        font-size: 28px;
    }
    .grid-item{
        &1{
-         @include flexbox(flex,row,nowrap,space-evenly,baseline);
-        @include responsive(sm){margin-top: 5%;  font-size: 16px;}
-        @include gridItem(1,1,1,1);
+         @include func.flexbox(flex,row,nowrap,space-evenly,baseline);
+        @include func.responsive(sm){margin-top: 5%;  font-size: 16px;}
+        @include func.gridItem(1,1,1,1);
        
         margin-top: 2%;
         font-size: 22px;        
      }
      &2{
-        @include responsive(sm){margin-top: 5%;  font-size: 12px;}
-        @include flexbox(flex,row,nowrap,space-evenly,baseline);
+        @include func.responsive(sm){margin-top: 5%;  font-size: 12px;}
+        @include func.flexbox(flex,row,nowrap,space-evenly,baseline);
         margin-top: 2%;
         font-size: 22px;     
      }
     
      &3{
-        @include flexbox(flex,row,nowrap,space-evenly,baseline);
+        @include func.flexbox(flex,row,nowrap,space-evenly,baseline);
      }
      &4{
-        @include flexbox(flex,row,nowrap,space-evenly,baseline);
+        @include func.flexbox(flex,row,nowrap,space-evenly,baseline);
      }
      
    }
@@ -53,12 +52,12 @@
 
    
        width: 100%;
-       background-color:  $background4;
+       background-color: vars.$background4;
        height: 250px;
 }
 .wave-footer{
   
-   @include responsive(sm){
+   @include func.responsive(sm){
     
       position: relative;
       top: -25px;
@@ -74,7 +73,7 @@
 }
 
 .footer-logo{
-   @include responsive(sm){
+   @include func.responsive(sm){
     
      
       margin-left: 64%;
