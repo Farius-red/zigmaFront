@@ -7,9 +7,10 @@ import { UntypedFormGroup, FormGroupName } from '@angular/forms';
 import { Store } from '@ngxs/store';
 
 @Component({
-  selector: 'app-registro',
-  templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.scss'],
+    selector: 'app-registro',
+    templateUrl: './registro.component.html',
+    styleUrls: ['./registro.component.scss'],
+    standalone: false
 })
 export class RegistroComponent implements OnInit {
 

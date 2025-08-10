@@ -27,15 +27,16 @@ export interface UserData {
 
 
 @Component({
-  selector: 'app-registro-trabajos',
-  templateUrl: './registro-trabajos.component.html',
-  styleUrls: ['./registro-trabajos.component.scss'],
-  providers: [
-    {
-      provide: STEPPER_GLOBAL_OPTIONS,
-      useValue: {showError: true},
-    },
-  ],
+    selector: 'app-registro-trabajos',
+    templateUrl: './registro-trabajos.component.html',
+    styleUrls: ['./registro-trabajos.component.scss'],
+    providers: [
+        {
+            provide: STEPPER_GLOBAL_OPTIONS,
+            useValue: { showError: true },
+        },
+    ],
+    standalone: false
 })
 
 

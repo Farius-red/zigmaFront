@@ -7,9 +7,10 @@ import { MenuModel } from 'src/app/core/modelos/menu/menu.Model';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-inicio',
-  templateUrl: './inicio.page.html',
-  styleUrls: ['./inicio.page.scss'],
+    selector: 'app-inicio',
+    templateUrl: './inicio.page.html',
+    styleUrls: ['./inicio.page.scss'],
+    standalone: false
 })
 export class InicioPage implements OnInit {
 

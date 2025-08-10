@@ -10,9 +10,10 @@ import { MenuState } from 'src/state/menu.state';
 import { Menu } from 'src/assets/utils/enums/menu';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.page.html',
-  styleUrls: ['./admin.page.scss'],
+    selector: 'app-admin',
+    templateUrl: './admin.page.html',
+    styleUrls: ['./admin.page.scss'],
+    standalone: false
 })
 export class AdminPage implements OnInit {
 

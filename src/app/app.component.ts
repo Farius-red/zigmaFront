@@ -11,9 +11,10 @@ import { Select,  Store } from '@ngxs/store';
 import { Menu } from 'src/assets/utils/enums/menu';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss'],
+    selector: 'app-root',
+    templateUrl: 'app.component.html',
+    styleUrls: ['app.component.scss'],
+    standalone: false
 })
 export class AppComponent {
   langs:string[]=[];

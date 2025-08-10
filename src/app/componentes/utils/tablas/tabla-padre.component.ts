@@ -9,9 +9,10 @@ import { MatSort } from '@angular/material/sort';
 
 
 @Component({
-  selector: 'app-tabla-padre',
-  templateUrl: './tabla-padre.component.html',
-  styleUrls: ['./tabla-padre.component.scss'],
+    selector: 'app-tabla-padre',
+    templateUrl: './tabla-padre.component.html',
+    styleUrls: ['./tabla-padre.component.scss'],
+    standalone: false
 })
 export class TablaPadreComponent<E> implements OnInit {
 
