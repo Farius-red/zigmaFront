@@ -6,7 +6,7 @@ import { RutinaState } from 'src/state/logicanegocio/wellnesfit/rutina.state';
 import { RutinaDTO } from 'src/app/core/modelos/logicaNegocio/wellnesfit/RutinaDTO.model';
 import { getAllRutinas } from 'src/state/logicanegocio/wellnesfit/rutina.actions';
 import { PersonalizacionTabla, PlantillaTablas } from 'src/app/core/modelos/plantillas/PlantillaTablas';
-import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
+import { MatTableDataSource } from '@angular/material/table';
 import { Comida } from 'src/app/core/modelos/logicaNegocio/wellnesfit/Comida.model';
 import { Ejercicio } from 'src/app/core/modelos/logicaNegocio/wellnesfit/Ejercicio.model';
 

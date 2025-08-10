@@ -1,9 +1,9 @@
 import { PlantillaResponse } from './../../../core/modelos/PlantillaResponse';
 import { PlantillaTablas } from './../../../core/modelos/plantillas/PlantillaTablas';
 import { Component, OnInit,ViewChild, Input } from '@angular/core';
-import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
+import { MatTableDataSource } from '@angular/material/table';
 
-import {MatLegacyPaginator as MatPaginator} from '@angular/material/legacy-paginator';
+import {MatPaginator} from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
 

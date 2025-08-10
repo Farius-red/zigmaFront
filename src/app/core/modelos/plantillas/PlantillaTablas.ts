@@ -1,5 +1,5 @@
 
-import { MatLegacyTableDataSource as MatTableDataSource } from "@angular/material/legacy-table";
+import { MatTableDataSource } from "@angular/material/table";
 
 export class PlantillaTablas<E>{
     personalizacionTabla:PersonalizacionTabla;

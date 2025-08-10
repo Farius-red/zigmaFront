@@ -10,9 +10,9 @@ import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 
-import { MatLegacyPaginator as MatPaginator } from '@angular/material/legacy-paginator';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
+import { MatTableDataSource } from '@angular/material/table';
 import { ColoresModel } from 'src/app/core/modelos/logicaNegocio/zigmainflables/dising/colores.Model';
 import { getColoresyMateriales, getDising } from 'src/state/logicanegocio/zigmainflables/disenio.actions';
 import { disenioState } from 'src/state/logicanegocio/zigmainflables/disenios.state';
