@@ -1,4 +1,4 @@
-import { TrabajosModel } from '../app/core/modelos/logicaNegocio/zigmainflables/trabajos/Trabajos.model';
+import { TrabajosModel } from '../../../app/core/modelos/logicaNegocio/zigmainflables/trabajos/Trabajos.model';
 export class AddWorkAction {
   static readonly type = '[Lisworks] Add work';
   constructor(public payload: TrabajosModel) { }

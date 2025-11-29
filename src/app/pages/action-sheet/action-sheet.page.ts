@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-action-sheet',
-  templateUrl: './action-sheet.page.html',
-  styleUrls: ['./action-sheet.page.scss'],
+    selector: 'app-action-sheet',
+    templateUrl: './action-sheet.page.html',
+    styleUrls: ['./action-sheet.page.scss'],
+    standalone: false
 })
 export class ActionSheetPage implements OnInit {
 

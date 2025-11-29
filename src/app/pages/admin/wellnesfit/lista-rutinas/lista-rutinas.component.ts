@@ -11,9 +11,10 @@ import { Comida } from 'src/app/core/modelos/logicaNegocio/wellnesfit/Comida.mod
 import { Ejercicio } from 'src/app/core/modelos/logicaNegocio/wellnesfit/Ejercicio.model';
 
 @Component({
-  selector: 'app-lista-rutinas',
-  templateUrl: './lista-rutinas.component.html',
-  styleUrls: ['./lista-rutinas.component.scss'],
+    selector: 'app-lista-rutinas',
+    templateUrl: './lista-rutinas.component.html',
+    styleUrls: ['./lista-rutinas.component.scss'],
+    standalone: false
 })
 export class ListaRutinasComponent implements OnInit {
 

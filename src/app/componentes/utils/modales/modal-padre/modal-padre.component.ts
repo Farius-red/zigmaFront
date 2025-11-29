@@ -3,9 +3,10 @@ import { ModalController } from '@ionic/angular';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-modal-padre',
-  templateUrl: './modal-padre.component.html',
-  styleUrls: ['./modal-padre.component.scss'],
+    selector: 'app-modal-padre',
+    templateUrl: './modal-padre.component.html',
+    styleUrls: ['./modal-padre.component.scss'],
+    standalone: false
 })
 export class ModalPadreComponent implements OnInit {
 

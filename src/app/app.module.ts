@@ -15,7 +15,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgxsModule } from '@ngxs/store';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './utils/material/material.module';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
@@ -30,44 +30,33 @@ export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
-@NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
-  imports: [
-    BrowserModule, 
-    IonicModule.forRoot(), 
-    AppRoutingModule, 
-    NgxsModule.forRoot([MenuState,ProductState,UsuariosState,disenioState,RutinaState],{
-      developmentMode:!environment.production
-    }),
-   
-    TranslateModule.forRoot({
-      loader: {
-          provide: TranslateLoader,
-          useFactory: (createTranslateLoader),
-          deps: [HttpClient]
-      }
-      
-    }),
-  NgxsReduxDevtoolsPluginModule.forRoot(),
-  NgxsLoggerPluginModule.forRoot(),
-   FormsModule,
-   ReactiveFormsModule,
-   HttpClientModule,
-   BrowserAnimationsModule,
-   MaterialModule,
-   ComponentesModule
-  ],
-
-  providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    authInterceptorProviders,
-    HTTP,
-   // { provide: HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true }
-  ],
-  exports:[
-    TranslateModule,
-  ],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [AppComponent],
+    exports: [
+        TranslateModule,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        IonicModule.forRoot(),
+        AppRoutingModule,
+        NgxsModule.forRoot([MenuState, ProductState, UsuariosState, disenioState, RutinaState], {
+            developmentMode: !environment.production
+        }),
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (createTranslateLoader),
+                deps: [HttpClient]
+            }
+        }),
+        NgxsReduxDevtoolsPluginModule.forRoot(),
+        NgxsLoggerPluginModule.forRoot(),
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        ComponentesModule], providers: [
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+        authInterceptorProviders,
+        HTTP,
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 export class AppModule {}

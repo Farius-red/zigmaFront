@@ -8,9 +8,10 @@ import { isEmpty } from 'rxjs';
 
 
 @Component({
-  selector: 'app-card-padre',
-  templateUrl: './card-padre.component.html',
-  styleUrls: ['./card-padre.component.scss'],
+    selector: 'app-card-padre',
+    templateUrl: './card-padre.component.html',
+    styleUrls: ['./card-padre.component.scss'],
+    standalone: false
 })
 export class CardPadreComponent implements OnInit {
 
