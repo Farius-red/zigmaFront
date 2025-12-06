@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true">
+<!-- <ion-content [fullscreen]="true">
   <div class="fondodeg"></div> 
     <ion-fab slot="fixed" vertical="top" horizontal="start">
         <ion-fab-button color="success">
@@ -45,15 +45,14 @@
                                
                                     <div class="content-card-header">
 
-                                        <!-- <ion-fab-button >
+                                        <ion-fab-button >
                                            
                                             <ion-icon name="cart-outline"></ion-icon>
-                                        </ion-fab-button> -->
+                                        </ion-fab-button>
                                     
 
                                     
                                          <div class="carrito1">
-                                            <!-- <p style="text-align: center;">precio</p> -->
                                          </div>
                                     </div>
                                
@@ -63,10 +62,7 @@
                  
                 </div>
             </ion-col>
-            <!-- <ion-col size="3">
-                
-                <app-header  [menuId]="menuId"></app-header>
-            </ion-col> -->
+          
 
         </ion-row>
     </ion-grid>
@@ -223,6 +219,14 @@
   
 </ion-content>
 
+ -->
 
-
-<!-- <app-card-products></app-card-products> -->
+@if (loading) {
+  <lib-loading-zigma></lib-loading-zigma>
+} @else {
+  <lib-home-ecommerce1 
+    [isLogin]="isLogin"
+    [Products]="productos"
+    [Categorias]="categorias">
+  </lib-home-ecommerce1>
+}

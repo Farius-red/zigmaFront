@@ -9,6 +9,7 @@ import { IonicModule } from '@ionic/angular';
 import { InicioPageRoutingModule } from './inicio-routing.module';
 
 import { InicioPage } from './inicio.page';
+import { Ecommerce1, HomeEcommerce1, HeroSectionEcommerce1, LoadingZigma } from 'lib-common-angular';
 
 
 
@@ -19,8 +20,11 @@ import { InicioPage } from './inicio.page';
     IonicModule,
     InicioPageRoutingModule,
     ComponentesModule,
-    
-  ],
+    Ecommerce1,
+    HomeEcommerce1,
+    HeroSectionEcommerce1,
+    LoadingZigma
+],
   
   declarations: [InicioPage],
 

@@ -17,7 +17,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'inicio',
+    path: 'home',
     loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
   },
  
@@ -27,7 +27,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'inicio',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   
@@ -35,7 +35,10 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { 
+      preloadingStrategy: PreloadAllModules,
+      bindToComponentInputs: true 
+    })
   ],
   exports: [RouterModule]
 })

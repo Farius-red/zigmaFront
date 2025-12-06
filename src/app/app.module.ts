@@ -19,32 +19,37 @@ import { HttpClient, HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromD
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './utils/material/material.module';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {TranslateHttpLoader, TRANSLATE_HTTP_LOADER_CONFIG} from '@ngx-translate/http-loader';
 import { MenuState } from 'src/state/menu.state';
 import { ProductState } from 'src/state/productos.state ';
 import { disenioState } from 'src/state/logicanegocio/zigmainflables/disenios.state';
 import { RutinaState } from 'src/state/logicanegocio/wellnesfit/rutina.state';
+import { CategoriaProductoState, Ecommerce1 } from 'lib-common-angular';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeng/themes/aura';
+import {ProductosState} from 'lib-common-angular';
 
-
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+export function createTranslateLoader() {
+  return new TranslateHttpLoader();
 }
 
 @NgModule({ declarations: [AppComponent],
+
     exports: [
         TranslateModule,
     ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
         IonicModule.forRoot(),
         AppRoutingModule,
-        NgxsModule.forRoot([MenuState, ProductState, UsuariosState, disenioState, RutinaState], {
+        NgxsModule.forRoot([MenuState, ProductState, UsuariosState, disenioState, RutinaState, ProductosState, CategoriaProductoState], {
             developmentMode: !environment.production
         }),
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
-                useFactory: (createTranslateLoader),
-                deps: [HttpClient]
+                useFactory: (createTranslateLoader)
             }
         }),
         NgxsReduxDevtoolsPluginModule.forRoot(),
@@ -53,7 +58,16 @@ export function createTranslateLoader(http: HttpClient) {
         ReactiveFormsModule,
         BrowserAnimationsModule,
         MaterialModule,
-        ComponentesModule], providers: [
+        ComponentesModule,
+        Ecommerce1
+    ],
+    providers: [
+        providePrimeNG({
+            theme: {
+                preset: Aura
+            }
+        }),
+        { provide: TRANSLATE_HTTP_LOADER_CONFIG, useValue: { prefix: './assets/i18n/', suffix: '.json' } },
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
         authInterceptorProviders,
         HTTP,
