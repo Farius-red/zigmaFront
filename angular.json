@@ -33,8 +33,16 @@
                 "output": "./svg"
               }
             ],
-            "styles": ["./node_modules/@angular/material/prebuilt-themes/indigo-pink.css", "src/theme/variables.scss", "src/global.scss"],
-            "scripts": [],
+            "styles": [
+               "src/theme/variables.scss",
+               "src/global.scss",
+               "node_modules/prismjs/themes/prism.css",
+              "node_modules/tailwindcss/index.css"
+
+              ],
+      
+            "scripts": [  
+            ],
             "aot": false,
             "extractLicenses": false,
             "sourceMap": true,

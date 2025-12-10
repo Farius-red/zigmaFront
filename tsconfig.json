@@ -15,6 +15,12 @@
       "es2018",
       "dom"
     ],
+    "paths": {
+      "lib-common-angular": [
+        "../lib/common-lib-angular/projects/lib-common-angular/src/public-api.ts"
+      ]
+    },
+    "skipLibCheck": true,
     "useDefineForClassFields": false
   },
   "angularCompilerOptions": {

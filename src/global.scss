@@ -27,6 +27,14 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
+
+/* Restaurar scroll nativo al no usar ion-app/ion-content */
+html, body {
+  overflow: auto !important;
+  height: auto !important;
+  position: static !important;
+}
+
 .button-primary{
     background: rgb(52, 51, 53);
     background: var(--button-colors);

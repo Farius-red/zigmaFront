@@ -22,6 +22,9 @@ export class AppComponent {
   seleccionada:string
 
 @Select(MenuState.getMenulist) menu$:Observable<MenuModel[]>;
+showWhatsappButton = false;
+  showWhatsappModal = false;
+  whatsappModalShown = false;
 menuId:string ="inicio";
   constructor(
     private titleService: Title,
@@ -32,7 +35,7 @@ menuId:string ="inicio";
     private store : Store
                                        )
   { 
-    this.langs= this.translate.getLangs();
+    this.langs = [...this.translate.getLangs()];
     this.translate.setDefaultLang('en');
     this.translate.setDefaultLang('es');
       this.translate.addLangs(["es","en"]);

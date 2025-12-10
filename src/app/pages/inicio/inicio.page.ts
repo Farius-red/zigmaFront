@@ -1,10 +1,13 @@
 import { ProductVO } from 'src/app/core/modelos/productos/productVO';
-
-import { Observable, } from 'rxjs';
+import { PlantillaResponse } from 'juliaositembackenexpress/dist/utils/PlantillaResponse';
+import { Observable, Subscription, } from 'rxjs';
 import { MenuSvcService } from './../../core/servicios/menuSvc/menu-svc.service';
-import { Component, OnInit,  } from '@angular/core';
+import { Component, OnDestroy, OnInit,  } from '@angular/core';
 import { MenuModel } from 'src/app/core/modelos/menu/menu.Model';
 import { Router } from '@angular/router';
+import { CategoriaDTO, ProductoDTO} from '@juliaosistem/core-dtos';
+import { Store } from '@ngxs/store';
+import { ProductosActions,CategoriaproductoActions,ProductosState,CategoriaProductoState} from 'lib-common-angular';
 
 @Component({
     selector: 'app-inicio',
@@ -12,7 +15,13 @@ import { Router } from '@angular/router';
     styleUrls: ['./inicio.page.scss'],
     standalone: false
 })
-export class InicioPage implements OnInit {
+export class InicioPage implements OnInit ,OnDestroy{
+
+  // Datos para pasar a los componentes
+  productos: ProductoDTO[] = [];
+  categorias: CategoriaDTO[] = [];
+  isLogin: boolean = false;
+  loading: boolean = true;
 
   menuId:string = "inicio"
   menu:Observable<MenuModel[]>
@@ -190,16 +199,51 @@ export class InicioPage implements OnInit {
       delay: 4000
     }
   };
+  
 
-  constructor(private  menuSvc: MenuSvcService ,
-    private router: Router
+  constructor(
+    private router: Router,
+    private store: Store
     ) { }
 
   ngOnInit() {
       console.log(this.router.url)
+      this.loadMockData();
+      
+   
+     
   }
 
-  moverSlideAdelante(){
+ngOnDestroy() {
+ 
+  }
+
+private loadMockData() {
+    this.store.dispatch(new ProductosActions.LoadMock());
+    this.store.dispatch(new CategoriaproductoActions.LoadMock());
+    
+    this.store
+      .select((state) => state.producto?.dataList ?? [])
+      .subscribe((data: ProductoDTO[]) => {
+        console.log('Productos cargados (desde loadMockData):', data);
+        this.productos = data;
+     
+        
+      });
+      this.store.select((state) => state.categoriaproducto?.dataList ?? [])
+      .subscribe((data: CategoriaDTO[]) => {
+        debugger
+        console.log('Categorías cargadas (desde loadMockData):', data);
+        this.categorias = data;
+        
+        this.checkLoadingComplete();
+      });
+  }
+
+  private checkLoadingComplete() {
+    if (this.productos.length > 0 || this.categorias.length > 0) {
+      this.loading = false;
+    }
   }
 
 	touchRedes(red: string) {

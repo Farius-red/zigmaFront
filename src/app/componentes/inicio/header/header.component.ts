@@ -17,7 +17,7 @@ seleccionada:string
   constructor(
     private translate: TranslateService ) { 
       
-      this.langs= this.translate.getLangs();
+      this.langs = [...this.translate.getLangs()];
       this.translate.setDefaultLang('en');
       this.translate.setDefaultLang('es');
         this.translate.addLangs(["es","en"]);
