@@ -199,13 +199,9 @@ export class InicioPage implements OnInit ,OnDestroy{
       delay: 4000
     }
   };
-
-
-  private subscriptions = new Subscription();
-
   
 
-  constructor(private  menuSvc: MenuSvcService ,
+  constructor(
     private router: Router,
     private store: Store
     ) { }
@@ -223,10 +219,9 @@ ngOnDestroy() {
   }
 
 private loadMockData() {
-  debugger
     this.store.dispatch(new ProductosActions.LoadMock());
     this.store.dispatch(new CategoriaproductoActions.LoadMock());
-
+    
     this.store
       .select((state) => state.producto?.dataList ?? [])
       .subscribe((data: ProductoDTO[]) => {
