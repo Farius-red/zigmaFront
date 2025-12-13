@@ -12,8 +12,10 @@ const routes: Routes = [
       routePaths: {
         home: './',
         login: 'login',
-        register: 'registro'
-      }
+        register: 'registro',
+        about: '#nosotros'
+      },
+      
     },
     children:[
       {
