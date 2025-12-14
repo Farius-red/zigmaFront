@@ -13,7 +13,8 @@ const routes: Routes = [
         home: './',
         login: 'login',
         register: 'registro',
-        about: '#nosotros'
+        about: '#nosotros',
+        categorias: '#categorias'
       },
       
     },
