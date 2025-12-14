@@ -7,7 +7,7 @@ import { MenuModel } from 'src/app/core/modelos/menu/menu.Model';
 import { Router } from '@angular/router';
 import { CategoriaDTO, ProductoDTO} from '@juliaosistem/core-dtos';
 import { Store } from '@ngxs/store';
-import { ProductosActions,CategoriaproductoActions,ProductosState,CategoriaProductoState} from 'lib-common-angular';
+import { ProductosActions,CategoriaproductoActions,ProductosState,CategoriaProductoState, ProductService} from 'lib-common-angular';
 
 @Component({
     selector: 'app-inicio',
@@ -18,8 +18,8 @@ import { ProductosActions,CategoriaproductoActions,ProductosState,CategoriaProdu
 export class InicioPage implements OnInit ,OnDestroy{
 
   // Datos para pasar a los componentes
-  productos: ProductoDTO[] = [];
-  categorias: CategoriaDTO[] = [];
+  productos: ProductoDTO[] | undefined;
+  categorias: CategoriaDTO[] | undefined;
   isLogin: boolean = false;
   loading: boolean = true;
 
@@ -203,7 +203,8 @@ export class InicioPage implements OnInit ,OnDestroy{
 
   constructor(
     private router: Router,
-    private store: Store
+    private store: Store,
+    private productSvc: ProductService
     ) { }
 
   ngOnInit() {
@@ -218,34 +219,36 @@ ngOnDestroy() {
  
   }
 
-private loadMockData() {
+  private loadMockData() {
     this.store.dispatch(new ProductosActions.LoadMock());
     this.store.dispatch(new CategoriaproductoActions.LoadMock());
     
+      this.store.select((state) => state.categoriaproducto?.dataList)
+      .subscribe((data: CategoriaDTO[]) => {
+        console.log('Categorías cargadas (desde loadMockData):', data);
+        if (data) {
+            this.categorias = data;
+            this.checkLoadingComplete();
+        }
+      })
     this.store
-      .select((state) => state.producto?.dataList ?? [])
+      .select((state) => state.producto?.dataList)
       .subscribe((data: ProductoDTO[]) => {
         console.log('Productos cargados (desde loadMockData):', data);
-        this.productos = data;
-     
-        
+        if (data) {
+            this.productos = data;
+            this.checkLoadingComplete();
+        }
       });
-      this.store.select((state) => state.categoriaproducto?.dataList ?? [])
-      .subscribe((data: CategoriaDTO[]) => {
-        debugger
-        console.log('Categorías cargadas (desde loadMockData):', data);
-        this.categorias = data;
-        
-        this.checkLoadingComplete();
-      });
-  }
+    ;
+    }
 
   private checkLoadingComplete() {
-    if (this.productos.length > 0 || this.categorias.length > 0) {
-      this.loading = false;
+    if (this.productos && this.categorias) {
+        this.productos = this.productSvc.addNameCategoriaToProducts(this.productos, this.categorias)
+          this.loading = false;
+        };
     }
-  }
-
 	touchRedes(red: string) {
  
    

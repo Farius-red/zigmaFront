@@ -222,7 +222,9 @@
  -->
 
 @if (loading) {
-  <lib-loading-zigma></lib-loading-zigma>
+  <div class="flex justify-content-center align-items-center h-screen">
+    <lib-loading-zigma></lib-loading-zigma>
+  </div>
 } @else {
   <lib-home-ecommerce1 
     [isLogin]="isLogin"
