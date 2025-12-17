@@ -30,6 +30,11 @@ const routes: Routes = [
               import('lib-common-angular').then(m => m.RegisterEcommerce1)
           },
           {
+            path: 'detalle/:id',
+            loadComponent: () =>
+              import('lib-common-angular').then(m => m.DetalleProductoPageLib)
+          },
+          {
             path:'',
             component: InicioPage
          }

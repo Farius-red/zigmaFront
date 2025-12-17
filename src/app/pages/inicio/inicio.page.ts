@@ -5,7 +5,7 @@ import { MenuSvcService } from './../../core/servicios/menuSvc/menu-svc.service'
 import { Component, OnDestroy, OnInit,  } from '@angular/core';
 import { MenuModel } from 'src/app/core/modelos/menu/menu.Model';
 import { Router } from '@angular/router';
-import { CategoriaDTO, ProductoDTO} from '@juliaosistem/core-dtos';
+import { BusinessDTO, CategoriaDTO, ProductoDTO} from '@juliaosistem/core-dtos';
 import { Store } from '@ngxs/store';
 import { ProductosActions,CategoriaproductoActions,ProductosState,CategoriaProductoState, ProductService} from 'lib-common-angular';
 
@@ -18,10 +18,23 @@ import { ProductosActions,CategoriaproductoActions,ProductosState,CategoriaProdu
 export class InicioPage implements OnInit ,OnDestroy{
 
   // Datos para pasar a los componentes
-  productos: ProductoDTO[] | undefined;
+
   categorias: CategoriaDTO[] | undefined;
   isLogin: boolean = false;
   loading: boolean = true;
+  bussinesDTO: BusinessDTO ={
+    idBussines: 1,
+    nombreNegocio: "Zigma Inflables",
+    logo: "https://zigmainflables.com/assets/imagenes/logoZigma.jpg",
+    email: "zigmainflables.com",
+    businessModule: [],
+    urlWhatssapp: "https://tinyurl.com/zigmainflables",
+    direccion:  "Carrera 104 # 130a -06 bogota ",
+    lenguaje: "ES",
+    productos: [],
+    telefono: "3118025433",
+
+  }
 
   menuId:string = "inicio"
   menu:Observable<MenuModel[]>
@@ -236,7 +249,7 @@ ngOnDestroy() {
       .subscribe((data: ProductoDTO[]) => {
         console.log('Productos cargados (desde loadMockData):', data);
         if (data) {
-            this.productos = data;
+            this.bussinesDTO.productos = data;
             this.checkLoadingComplete();
         }
       });
@@ -244,8 +257,8 @@ ngOnDestroy() {
     }
 
   private checkLoadingComplete() {
-    if (this.productos && this.categorias) {
-        this.productos = this.productSvc.addNameCategoriaToProducts(this.productos, this.categorias)
+    if (this.bussinesDTO.productos && this.categorias) {
+        this.bussinesDTO.productos = this.productSvc.addNameCategoriaToProducts(this.bussinesDTO.productos, this.categorias)
           this.loading = false;
         };
     }
