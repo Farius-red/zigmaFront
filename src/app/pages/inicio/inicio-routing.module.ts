@@ -16,7 +16,12 @@ const routes: Routes = [
         about: '#nosotros',
         categorias: '#categorias'
       },
-      
+      DatosNegocio: {
+        nombreNegocio: 'Zigma Inflables',
+        logo: '../../../assets/imagenes/logoZigmaInflables.svg',
+        urlWhatssapp: 'https://tinyurl.com/zigmainflables',
+        email: 'zigmainflables.com'
+      }
     },
     children:[
       {

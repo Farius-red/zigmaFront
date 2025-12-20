@@ -7,7 +7,7 @@ import { MenuModel } from 'src/app/core/modelos/menu/menu.Model';
 import { Router } from '@angular/router';
 import { BusinessDTO, CategoriaDTO, ProductoDTO} from '@juliaosistem/core-dtos';
 import { Store } from '@ngxs/store';
-import { ProductosActions,CategoriaproductoActions,ProductosState,CategoriaProductoState, ProductService} from 'lib-common-angular';
+import { ProductosActions,CategoriaproductoActions,ProductosState,CategoriaProductoState, ProductService, MetaDataService} from 'lib-common-angular';
 
 @Component({
     selector: 'app-inicio',
@@ -25,7 +25,7 @@ export class InicioPage implements OnInit ,OnDestroy{
   bussinesDTO: BusinessDTO ={
     idBussines: 1,
     nombreNegocio: "Zigma Inflables",
-    logo: "https://zigmainflables.com/assets/imagenes/logoZigma.jpg",
+    logo: "../../../assets/imagenes/logozigmainflables2.svg",
     email: "zigmainflables.com",
     businessModule: [],
     urlWhatssapp: "https://tinyurl.com/zigmainflables",
@@ -217,7 +217,8 @@ export class InicioPage implements OnInit ,OnDestroy{
   constructor(
     private router: Router,
     private store: Store,
-    private productSvc: ProductService
+    private productSvc: ProductService,
+    private meta: MetaDataService,
     ) { }
 
   ngOnInit() {
