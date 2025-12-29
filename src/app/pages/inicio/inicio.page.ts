@@ -33,7 +33,6 @@ export class InicioPage implements OnInit ,OnDestroy{
     lenguaje: "ES",
     productos: [],
     telefono: "3118025433",
-
   }
 
   menuId:string = "inicio"
