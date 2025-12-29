@@ -1,7 +1,5 @@
 import { ProductVO } from 'src/app/core/modelos/productos/productVO';
-import { PlantillaResponse } from 'juliaositembackenexpress/dist/utils/PlantillaResponse';
-import { Observable, Subscription, } from 'rxjs';
-import { MenuSvcService } from './../../core/servicios/menuSvc/menu-svc.service';
+import { Observable } from 'rxjs';
 import { Component, OnDestroy, OnInit,  } from '@angular/core';
 import { MenuModel } from 'src/app/core/modelos/menu/menu.Model';
 import { Router } from '@angular/router';
