@@ -13,9 +13,15 @@ const routes: Routes = [
         home: './',
         login: 'login',
         register: 'registro',
-        about: '#nosotros'
+        about: '#nosotros',
+        categorias: '#categorias'
       },
-      
+      DatosNegocio: {
+        nombreNegocio: 'Zigma Inflables',
+        logo: '../../../assets/imagenes/logoZigmaInflables.svg',
+        urlWhatssapp: 'https://tinyurl.com/zigmainflables',
+        email: 'zigmainflables.com'
+      }
     },
     children:[
       {
@@ -27,6 +33,11 @@ const routes: Routes = [
             path: 'registro',
             loadComponent: () =>
               import('lib-common-angular').then(m => m.RegisterEcommerce1)
+          },
+          {
+            path: 'detalle/:id',
+            loadComponent: () =>
+              import('lib-common-angular').then(m => m.DetalleProductoPageLib)
           },
           {
             path:'',
