@@ -5,7 +5,7 @@ import { MenuModel } from 'src/app/core/modelos/menu/menu.Model';
 import { Router } from '@angular/router';
 import { BusinessDTO, CategoriaDTO, ProductoDTO} from '@juliaosistem/core-dtos';
 import { Store } from '@ngxs/store';
-import { ProductosActions,CategoriaproductoActions,ProductosState,CategoriaProductoState, ProductService, MetaDataService} from 'lib-common-angular';
+import { ProductosActions,CategoriaproductoActions, ProductService, MetaDataService} from 'lib-common-angular';
 
 @Component({
     selector: 'app-inicio',
