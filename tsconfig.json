@@ -20,11 +20,16 @@
     //     "../lib/common-lib-angular/projects/lib-common-angular/src/public-api.ts"
     //   ]
     // },
-    "paths": {
-      "lib-common-angular": [
-        "node_modules/lib-common-angular/index.d.ts"
-      ]
-    },
+    // "paths": {
+    //   "lib-common-angular": [
+    //     "node_modules/lib-common-angular/dist/lib-common-angular/index.d.ts"
+    //   ]
+    // },
+    // "paths": {
+    //   "lib-common-angular": [
+    //     "../lib/common-lib-angular/projects/lib-common-angular/src/public-api.ts"
+    //   ]
+    // },
     "skipLibCheck": true,
     "useDefineForClassFields": false
   },
