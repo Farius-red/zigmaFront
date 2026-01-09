@@ -215,16 +215,12 @@ export class InicioPage implements OnInit ,OnDestroy{
     private router: Router,
     private store: Store,
     private productSvc: ProductService,
-    private meta: MetaDataService,
     ) { }
 
   ngOnInit() {
       console.log(this.router.url)
       this.loadMockData();
-      
-   
-     
-  }
+      }
 
 ngOnDestroy() {
  

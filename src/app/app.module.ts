@@ -6,7 +6,7 @@ import { environment } from './../environments/environment.prod';
 import { ComponentesModule } from './componentes/componentes.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
+import { RouteReuseStrategy, RouterModule } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
@@ -59,6 +59,7 @@ export function createTranslateLoader() {
         BrowserAnimationsModule,
         MaterialModule,
         ComponentesModule,
+        RouterModule,
         PrimegModule
     ],
     providers: [
