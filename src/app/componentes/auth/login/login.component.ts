@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { FormsAuthService } from 'src/app/core/servicios/formularios/forms-auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss'],
+    standalone: false
 })
 export class LoginComponent implements OnInit {
 
-  formLogin: FormGroup;
+  formLogin: UntypedFormGroup;
   constructor(private formAuthSvc :FormsAuthService) { }
 
   ngOnInit() {

@@ -3,9 +3,10 @@ import { Component, Input, OnInit } from '@angular/core';
 
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
+    standalone: false
 })
 export class HeaderComponent implements OnInit {
 
@@ -16,7 +17,7 @@ seleccionada:string
   constructor(
     private translate: TranslateService ) { 
       
-      this.langs= this.translate.getLangs();
+      this.langs = [...this.translate.getLangs()];
       this.translate.setDefaultLang('en');
       this.translate.setDefaultLang('es');
         this.translate.addLangs(["es","en"]);

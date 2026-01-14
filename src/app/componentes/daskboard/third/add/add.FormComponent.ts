@@ -8,9 +8,10 @@ import { ServiceThird } from 'src/app/core/servicios/formularios/service.third';
 
 
 @Component({
-  selector: 'app-third-add-form',
-  templateUrl: './add.FormComponent.html',
-  styleUrls: ['./add.FormComponent.scss']
+    selector: 'app-third-add-form',
+    templateUrl: './add.FormComponent.html',
+    styleUrls: ['./add.FormComponent.scss'],
+    standalone: false
 })
 export class addFormComponent implements OnInit {
   titulo= "Crear Tercero";

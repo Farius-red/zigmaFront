@@ -1,5 +1,5 @@
-@import "../../../../../theme/funtions";
-@import "/src/theme/componentes/varthemes.scss";
+@use "../../../../../theme/funtions" as func;
+@use "/src/theme/componentes/varthemes.scss" as vars;
 /*Card */
 .card {
     width: 190px;
@@ -23,8 +23,8 @@
    /*Image*/
    .card-img {
     border-radius: 20%;
-    background: $fondo3;
-    background: $background3;
+    background: vars.$fondo3;
+    background: vars.$background3;
     height: 100%;
     width: 100%;
     position: absolute;

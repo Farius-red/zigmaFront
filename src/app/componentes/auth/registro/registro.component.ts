@@ -3,17 +3,18 @@ import { DatesUser } from './../../../core/modelos/Usuarios/UserVO.Model';
 import { UserVO } from 'src/app/core/modelos/Usuarios/UserVO.Model';
 import { FormsAuthService } from './../../../core/servicios/formularios/forms-auth.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormGroupName } from '@angular/forms';
+import { UntypedFormGroup, FormGroupName } from '@angular/forms';
 import { Store } from '@ngxs/store';
 
 @Component({
-  selector: 'app-registro',
-  templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.scss'],
+    selector: 'app-registro',
+    templateUrl: './registro.component.html',
+    styleUrls: ['./registro.component.scss'],
+    standalone: false
 })
 export class RegistroComponent implements OnInit {
 
-   formRegisterU: FormGroup;
+   formRegisterU: UntypedFormGroup;
 
   constructor(private formAuthSvc :FormsAuthService,  private store : Store) {
     

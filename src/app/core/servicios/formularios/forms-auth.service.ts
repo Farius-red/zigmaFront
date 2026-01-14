@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Validaciones } from 'src/app/utils/validators';
 
 @Injectable({
@@ -7,9 +7,9 @@ import { Validaciones } from 'src/app/utils/validators';
 })
 export class FormsAuthService {
 
-  constructor(private formb: FormBuilder) { }
+  constructor(private formb: UntypedFormBuilder) { }
 
-  buildFormRegister(form: FormGroup){
+  buildFormRegister(form: UntypedFormGroup){
     return form = this.formb.group({
        email: ['', Validators.compose([ Validators.required ,Validators.email, Validators.pattern(Validaciones.emailfilter)])], 
        nickname:['',Validators.compose([Validators.required,Validators.minLength(3)])],
@@ -25,7 +25,7 @@ export class FormsAuthService {
  }
  
 
- buildFormLogin(form: FormGroup){
+ buildFormLogin(form: UntypedFormGroup){
   return form = this.formb.group({
       nickname:['',Validators.compose([Validators.required,Validators.minLength(3)])],
        password: ['',[Validators.required, Validators.minLength(6), Validaciones.validPassword]],

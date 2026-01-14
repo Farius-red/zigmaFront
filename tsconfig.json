@@ -4,14 +4,25 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
+    "esModuleInterop": true,
     "declaration": false,
-    "downlevelIteration": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
-    "target": "es2015",
+    "target": "ES2022",
     "module": "es2020",
-    "lib": ["es2018", "dom"]
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    // "paths": {
+    //   "lib-common-angular": [
+    //     "../lib/common-lib-angular/projects/lib-common-angular/src/public-api.ts"
+    //   ]
+    // },
+    
+    "skipLibCheck": true,
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

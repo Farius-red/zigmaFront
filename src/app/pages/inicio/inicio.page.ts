@@ -1,17 +1,37 @@
 import { ProductVO } from 'src/app/core/modelos/productos/productVO';
-
-import { Observable, } from 'rxjs';
-import { MenuSvcService } from './../../core/servicios/menuSvc/menu-svc.service';
-import { Component, OnInit,  } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Component, OnDestroy, OnInit,  } from '@angular/core';
 import { MenuModel } from 'src/app/core/modelos/menu/menu.Model';
 import { Router } from '@angular/router';
+import { BusinessDTO, CategoriaDTO, ProductoDTO} from '@juliaosistem/core-dtos';
+import { Store } from '@ngxs/store';
+import { ProductosActions,CategoriaproductoActions, ProductService, MetaDataService} from 'lib-common-angular';
 
 @Component({
-  selector: 'app-inicio',
-  templateUrl: './inicio.page.html',
-  styleUrls: ['./inicio.page.scss'],
+    selector: 'app-inicio',
+    templateUrl: './inicio.page.html',
+    styleUrls: ['./inicio.page.scss'],
+    standalone: false
 })
-export class InicioPage implements OnInit {
+export class InicioPage implements OnInit ,OnDestroy{
+
+  // Datos para pasar a los componentes
+
+  categorias: CategoriaDTO[] | undefined;
+  isLogin: boolean = false;
+  loading: boolean = true;
+  bussinesDTO: BusinessDTO ={
+    idBussines: 1,
+    nombreNegocio: "Zigma Inflables",
+    logo: "../../../assets/imagenes/logozigmainflables2.svg",
+    email: "zigmainflables.com",
+    businessModule: [],
+    urlWhatssapp: "https://tinyurl.com/zigmainflables",
+    direccion:  "Carrera 104 # 130a -06 bogota ",
+    lenguaje: "ES",
+    productos: [],
+    telefono: "3118025433",
+  }
 
   menuId:string = "inicio"
   menu:Observable<MenuModel[]>
@@ -189,29 +209,60 @@ export class InicioPage implements OnInit {
       delay: 4000
     }
   };
+  
 
-  constructor(private  menuSvc: MenuSvcService ,
-    private router: Router
+  constructor(
+    private router: Router,
+    private store: Store,
+    private productSvc: ProductService,
     ) { }
 
   ngOnInit() {
       console.log(this.router.url)
+      this.loadMockData();
+      }
+
+ngOnDestroy() {
+ 
   }
 
-  moverSlideAdelante(){
-  }
+  private loadMockData() {
+    this.store.dispatch(new ProductosActions.LoadMock());
+    this.store.dispatch(new CategoriaproductoActions.LoadMock());
+    
+      this.store.select((state) => state.categoriaproducto?.dataList)
+      .subscribe((data: CategoriaDTO[]) => {
+        console.log('Categorías cargadas (desde loadMockData):', data);
+        if (data) {
+            this.categorias = data;
+            this.checkLoadingComplete();
+        }
+      })
+    this.store
+      .select((state) => state.producto?.dataList)
+      .subscribe((data: ProductoDTO[]) => {
+        console.log('Productos cargados (desde loadMockData):', data);
+        if (data) {
+            this.bussinesDTO.productos = data;
+            this.checkLoadingComplete();
+        }
+      });
+    ;
+    }
 
+  private checkLoadingComplete() {
+    if (this.bussinesDTO.productos && this.categorias) {
+        this.bussinesDTO.productos = this.productSvc.addNameCategoriaToProducts(this.bussinesDTO.productos, this.categorias)
+          this.loading = false;
+        };
+    }
 	touchRedes(red: string) {
-   if(this.router.url == "/inicio/ecu"){
-   if(red=="whatsapp") window.open("https://wa.link/t4l0z0", '_blank');
-   if(red=="facebook")window.open("https://www.facebook.com/ZigmainflablesEcuador/",'_blank' );
-   if(red=="instagram")window.open("https://www.instagram.com/fabricantesdeinflableszigma/",'_blank' );
-   }
-   else{
+ 
+   
     if(red=="whatsapp")window.open("https://wa.link/xsdfdu",'_blank' );
     if(red=="facebook")window.open("https://www.facebook.com/Zigmainflables/",'_blank' );
     if(red=="instagram")window.open("https://www.instagram.com/zigmainflables/",'_blank' );
-   }
-    }
+   
+  }
   
 }

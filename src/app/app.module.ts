@@ -6,7 +6,7 @@ import { environment } from './../environments/environment.prod';
 import { ComponentesModule } from './componentes/componentes.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
+import { RouteReuseStrategy, RouterModule } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
@@ -15,59 +15,62 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgxsModule } from '@ngxs/store';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './utils/material/material.module';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {TranslateHttpLoader, TRANSLATE_HTTP_LOADER_CONFIG} from '@ngx-translate/http-loader';
 import { MenuState } from 'src/state/menu.state';
 import { ProductState } from 'src/state/productos.state ';
 import { disenioState } from 'src/state/logicanegocio/zigmainflables/disenios.state';
 import { RutinaState } from 'src/state/logicanegocio/wellnesfit/rutina.state';
+import { CategoriaProductoState, PrimegModule,ProductosState } from 'lib-common-angular';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeng/themes/aura';
 
-
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+export function createTranslateLoader() {
+  return new TranslateHttpLoader();
 }
 
-@NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
-  imports: [
-    BrowserModule, 
-    IonicModule.forRoot(), 
-    AppRoutingModule, 
-    NgxsModule.forRoot([MenuState,ProductState,UsuariosState,disenioState,RutinaState],{
-      developmentMode:!environment.production
-    }),
-   
-    TranslateModule.forRoot({
-      loader: {
-          provide: TranslateLoader,
-          useFactory: (createTranslateLoader),
-          deps: [HttpClient]
-      }
-      
-    }),
-  NgxsReduxDevtoolsPluginModule.forRoot(),
-  NgxsLoggerPluginModule.forRoot(),
-   FormsModule,
-   ReactiveFormsModule,
-   HttpClientModule,
-   BrowserAnimationsModule,
-   MaterialModule,
-   ComponentesModule
-  ],
+@NgModule({ declarations: [AppComponent],
 
-  providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    authInterceptorProviders,
-    HTTP,
-   // { provide: HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true }
-  ],
-  exports:[
-    TranslateModule,
-  ],
-  bootstrap: [AppComponent],
-})
+    exports: [
+        TranslateModule,
+    ],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot(),
+        AppRoutingModule,
+        NgxsModule.forRoot([MenuState, ProductState, UsuariosState, disenioState, RutinaState, ProductosState, CategoriaProductoState], {
+            developmentMode: !environment.production
+        }),
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (createTranslateLoader)
+            }
+        }),
+        NgxsReduxDevtoolsPluginModule.forRoot(),
+        NgxsLoggerPluginModule.forRoot(),
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        ComponentesModule,
+        RouterModule,
+        PrimegModule
+    ],
+    providers: [
+        providePrimeNG({
+            theme: {
+                preset: Aura
+            }
+        }),
+        { provide: TRANSLATE_HTTP_LOADER_CONFIG, useValue: { prefix: './assets/i18n/', suffix: '.json' } },
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+        authInterceptorProviders,
+        HTTP,
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 export class AppModule {}
