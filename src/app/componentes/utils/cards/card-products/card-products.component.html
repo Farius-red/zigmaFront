@@ -2,7 +2,7 @@
 
           <div class="card">
             <div class="card-img">
-              <img [src]="product.ulrProduct" >  
+              <img [src]="product.ulrProduct" [alt]="'Imagen de ' + (product.name || 'producto')">  
             </div>
             <ul class="social-media">
             <li> <ion-icon name="arrow-redo-outline"></ion-icon></li>

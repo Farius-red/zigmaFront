@@ -24,10 +24,9 @@ import { MenuState } from 'src/state/menu.state';
 import { ProductState } from 'src/state/productos.state ';
 import { disenioState } from 'src/state/logicanegocio/zigmainflables/disenios.state';
 import { RutinaState } from 'src/state/logicanegocio/wellnesfit/rutina.state';
-import { CategoriaProductoState, PrimegModule } from 'lib-common-angular';
+import { CategoriaProductoState, PrimegModule,ProductosState } from 'lib-common-angular';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
-import {ProductosState} from 'lib-common-angular';
 
 export function createTranslateLoader() {
   return new TranslateHttpLoader();
