@@ -35,6 +35,13 @@ html, body {
   position: static !important;
 }
 
+body, html, app-root, ion-app, #root {
+  min-height: 100vh !important;
+  height: auto !important;
+  overflow-y: auto !important;
+  position: static !important;
+}
+
 .button-primary{
     background: rgb(52, 51, 53);
     background: var(--button-colors);

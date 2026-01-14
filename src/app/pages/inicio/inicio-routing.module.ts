@@ -35,7 +35,7 @@ const routes: Routes = [
               import('lib-common-angular').then(m => m.RegisterEcommerce1)
           },
           {
-            path: 'detalle/:id',
+            path: 'productos/:nombre/:idInflable',
             loadComponent: () =>
               import('lib-common-angular').then(m => m.DetalleProductoPageLib)
           },
