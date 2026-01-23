@@ -1,3 +1,4 @@
+
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -16,11 +17,13 @@ const routes: Routes = [
         about: '#nosotros',
         categorias: '#categorias'
       },
-      DatosNegocio: {
+      DatosNegocio :{
         nombreNegocio: 'Zigma Inflables',
         logo: '../../../assets/imagenes/logoZigmaInflables.svg',
         urlWhatssapp: 'https://tinyurl.com/zigmainflables',
-        email: 'zigmainflables.com'
+        email: 'zigmainflables.com',
+        googleAnalyticsEvent:"cotizar",
+        adsConversionId: "AW-17894779083"
       }
     },
     children:[

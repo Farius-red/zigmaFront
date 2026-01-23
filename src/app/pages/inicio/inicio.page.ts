@@ -31,6 +31,8 @@ export class InicioPage implements OnInit ,OnDestroy{
     lenguaje: "ES",
     productos: [],
     telefono: "3118025433",
+    googleAnalyticsEvent: "cotizar",
+    googleAdsConversionId: "AW-17894779083"
   }
 
   menuId:string = "inicio"
