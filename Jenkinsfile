@@ -9,7 +9,7 @@ pipeline {
               - ip: "192.168.1.254"
                 hostnames:
                 - "nexus.juliaosistem-server.in"
-              securityContext:
+              securityContext: 
                 runAsUser: 0
               containers:
               - name: nodejs

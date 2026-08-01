@@ -5,7 +5,8 @@ import { MenuModel } from 'src/app/core/modelos/menu/menu.Model';
 import { Router } from '@angular/router';
 import { BusinessDTO, CategoriaDTO, ProductoDTO} from '@juliaosistem/core-dtos';
 import { Store } from '@ngxs/store';
-import { ProductosActions,CategoriaproductoActions, ProductService, MetaDataService} from 'lib-common-angular';
+import { ProductosActions,CategoriaproductoActions, ProductService, AuthService} from 'lib-common-angular';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector: 'app-inicio',
@@ -20,6 +21,7 @@ export class InicioPage implements OnInit ,OnDestroy{
   categorias: CategoriaDTO[] | undefined;
   isLogin: boolean = false;
   loading: boolean = true;
+  private destroy$ = new Subject<void>();
   bussinesDTO: BusinessDTO ={
     idBussines: 1,
     nombreNegocio: "Zigma Inflables",
@@ -217,46 +219,54 @@ export class InicioPage implements OnInit ,OnDestroy{
     private router: Router,
     private store: Store,
     private productSvc: ProductService,
+    private authService: AuthService,
     ) { }
 
   ngOnInit() {
       console.log(this.router.url)
-      this.loadMockData();
+      this.authService.rehydrateSession();
+      this.authService.isLoggedIn$
+        .pipe(takeUntil(this.destroy$))
+        .subscribe((isLogged) => this.isLogin = isLogged);
+      this.loadData();
       }
 
 ngOnDestroy() {
- 
+  this.destroy$.next();
+  this.destroy$.complete();
   }
 
-  private loadMockData() {
-    this.store.dispatch(new ProductosActions.LoadMock());
-    this.store.dispatch(new CategoriaproductoActions.LoadMock());
-    
+  private loadData() {
+    this.store.dispatch([
+      new ProductosActions.All({} as any),
+      new CategoriaproductoActions.All({} as any),
+    ]);
+
       this.store.select((state) => state.categoriaproducto?.dataList)
+      .pipe(takeUntil(this.destroy$))
       .subscribe((data: CategoriaDTO[]) => {
-        console.log('Categorías cargadas (desde loadMockData):', data);
-        if (data) {
-            this.categorias = data;
-            this.checkLoadingComplete();
-        }
-      })
+        console.log('Categorías cargadas desde backend:', data);
+        this.categorias = data ?? [];
+        this.checkLoadingComplete();
+      });
     this.store
       .select((state) => state.producto?.dataList)
+      .pipe(takeUntil(this.destroy$))
       .subscribe((data: ProductoDTO[]) => {
-        console.log('Productos cargados (desde loadMockData):', data);
-        if (data) {
-            this.bussinesDTO.productos = data;
-            this.checkLoadingComplete();
-        }
+        console.log('Productos cargados desde backend:', data);
+        this.bussinesDTO.productos = data ?? [];
+        this.checkLoadingComplete();
       });
-    ;
     }
 
   private checkLoadingComplete() {
     if (this.bussinesDTO.productos && this.categorias) {
-        this.bussinesDTO.productos = this.productSvc.addNameCategoriaToProducts(this.bussinesDTO.productos, this.categorias)
-          this.loading = false;
-        };
+        this.bussinesDTO.productos = this.productSvc.addNameCategoriaToProducts(
+          [...this.bussinesDTO.productos],
+          this.categorias,
+        );
+        this.loading = false;
+    }
     }
 	touchRedes(red: string) {
  

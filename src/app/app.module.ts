@@ -1,6 +1,5 @@
 import { HTTP } from '@awesome-cordova-plugins/http/ngx';
 import { authInterceptorProviders } from './core/servicios/interceptors/auth.interceptor';
-import { UsuariosState } from './../state/usuarios.state';
 import { environment } from './../environments/environment.prod';
 
 import { ComponentesModule } from './componentes/componentes.module';
@@ -15,18 +14,14 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgxsModule } from '@ngxs/store';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClient, HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './utils/material/material.module';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader, TRANSLATE_HTTP_LOADER_CONFIG} from '@ngx-translate/http-loader';
-import { MenuState } from 'src/state/menu.state';
-import { ProductState } from 'src/state/productos.state ';
-import { disenioState } from 'src/state/logicanegocio/zigmainflables/disenios.state';
-import { RutinaState } from 'src/state/logicanegocio/wellnesfit/rutina.state';
-import { CategoriaProductoState, PrimegModule,ProductosState } from 'lib-common-angular';
-import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeng/themes/aura';
+import { CategoriaProductoState, PrimegModule,ProductosState ,UsuariosState} from 'lib-common-angular';
+import { Injector } from '@angular/core';
+import { setLibraryInjector } from 'lib-common-angular';
 
 export function createTranslateLoader() {
   return new TranslateHttpLoader();
@@ -42,7 +37,7 @@ export function createTranslateLoader() {
         BrowserModule,
         IonicModule.forRoot(),
         AppRoutingModule,
-        NgxsModule.forRoot([MenuState, ProductState, UsuariosState, disenioState, RutinaState, ProductosState, CategoriaProductoState], {
+        NgxsModule.forRoot([UsuariosState, ProductosState, CategoriaProductoState], {
             developmentMode: !environment.production
         }),
         TranslateModule.forRoot({
@@ -56,21 +51,20 @@ export function createTranslateLoader() {
         FormsModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
+        HttpClientModule,
         MaterialModule,
         ComponentesModule,
         RouterModule,
         PrimegModule
     ],
     providers: [
-        providePrimeNG({
-            theme: {
-                preset: Aura
-            }
-        }),
         { provide: TRANSLATE_HTTP_LOADER_CONFIG, useValue: { prefix: './assets/i18n/', suffix: '.json' } },
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
         authInterceptorProviders,
         HTTP,
-        provideHttpClient(withInterceptorsFromDi()),
     ] })
-export class AppModule {}
+export class AppModule {
+    constructor(injector: Injector) {
+        setLibraryInjector(injector as any);
+    }
+}

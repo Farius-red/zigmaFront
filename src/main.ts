@@ -9,4 +9,8 @@ if (environment.production) {
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.log(err));
+  .catch((err) => {
+    console.error(err);
+    const message = err instanceof Error ? err.message : String(err);
+    document.body.setAttribute('data-bootstrap-error', message);
+  });
