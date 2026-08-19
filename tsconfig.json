@@ -16,6 +16,11 @@
       "dom"
     ],
     "paths": {
+      // "@angular/core": ["node_modules/@angular/core"],
+      // "@angular/common": ["node_modules/@angular/common"],
+      // "@angular/platform-browser": ["node_modules/@angular/platform-browser"],
+      // "@angular/platform-browser-dynamic": ["node_modules/@angular/platform-browser-dynamic"],
+      // "@angular/router": ["node_modules/@angular/router"],
       "lib-common-angular": [
         "../lib/common-lib-angular/projects/lib-common-angular/src/public-api.ts"
       ],
@@ -24,11 +29,34 @@
         "node_modules/@juliaosistem/core-dtos/index.ts"
       ],
       "@juliaosistem/core-dtos/*": [
-        "../../back/lib-core-dtos/node_modules/@juliaosistem/core-dtos/*",
-        "node_modules/@juliaosistem/core-dtos/*"
+        "../../back/lib-core-dtos/node_modules/@juliaosistem/core-dtos/*"
       ],
+      
+       "juliaositembackenexpress": [
+        "../../back/lib/juliaositemBackenNest/dist/index.js",
+        "../../back/lib/juliaositemBackenNest/dist/index.d.ts"
+      ],
+      "juliaositembackenexpress/*": [
+        "../../back/lib/juliaositemBackenNest/*"
+      ],
+      "juliaositembackenexpress/dist/*": [
+        "../../back/lib/juliaositemBackenNest/dist/*"
+      ],
+     
       "@angular/*": [
         "node_modules/@angular/*"
+      ],
+      "@ngx-translate/core": [
+        "node_modules/@ngx-translate/core"
+      ],
+      "@ngx-translate/core/*": [
+        "node_modules/@ngx-translate/core/*"
+      ],
+      "@ngx-translate/http-loader": [
+        "node_modules/@ngx-translate/http-loader"
+      ],
+      "@ngx-translate/http-loader/*": [
+        "node_modules/@ngx-translate/http-loader/*"
       ],
       "@ionic/*": [
         "node_modules/@ionic/*"
@@ -38,6 +66,18 @@
       ],
       "rxjs/*": [
         "node_modules/rxjs/*"
+      ],
+      "country-state-city": [
+        "node_modules/country-state-city"
+      ],
+      "country-state-city/*": [
+        "node_modules/country-state-city/*"
+      ],
+      "libphonenumber-js": [
+        "node_modules/libphonenumber-js"
+      ],
+      "libphonenumber-js/*": [
+        "node_modules/libphonenumber-js/*"
       ]
     },
     

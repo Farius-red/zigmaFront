@@ -1,70 +1,91 @@
+import { NgModule, APP_INITIALIZER, Injector } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouteReuseStrategy, RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { NgxsModule } from '@ngxs/store';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader, TRANSLATE_HTTP_LOADER_CONFIG } from '@ngx-translate/http-loader';
+
 import { HTTP } from '@awesome-cordova-plugins/http/ngx';
+
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ComponentesModule } from './componentes/componentes.module';
+import { MaterialModule } from './utils/material/material.module';
 import { authInterceptorProviders } from './core/servicios/interceptors/auth.interceptor';
 import { environment } from './../environments/environment.prod';
 
-import { ComponentesModule } from './componentes/componentes.module';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy, RouterModule } from '@angular/router';
+import {
+  CategoriaProductoState,
+  PrimegModule,
+  ProductosState,
+  UsuariosState,
+  setLibraryInjector,
+} from 'lib-common-angular';
 
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
-import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { NgxsModule } from '@ngxs/store';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './utils/material/material.module';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader, TRANSLATE_HTTP_LOADER_CONFIG} from '@ngx-translate/http-loader';
-import { CategoriaProductoState, PrimegModule,ProductosState ,UsuariosState} from 'lib-common-angular';
-import { Injector } from '@angular/core';
-import { setLibraryInjector } from 'lib-common-angular';
-
-export function createTranslateLoader() {
+// Factoría de traducción recibiendo HttpClient explícitamente
+export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader();
 }
 
-@NgModule({ declarations: [AppComponent],
-
-    exports: [
-        TranslateModule,
-    ],
-    bootstrap: [AppComponent],
-    imports: [
-        BrowserModule,
-        IonicModule.forRoot(),
-        AppRoutingModule,
-        NgxsModule.forRoot([UsuariosState, ProductosState, CategoriaProductoState], {
-            developmentMode: !environment.production
-        }),
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: (createTranslateLoader)
-            }
-        }),
-        NgxsReduxDevtoolsPluginModule.forRoot(),
-        NgxsLoggerPluginModule.forRoot(),
-        FormsModule,
-        ReactiveFormsModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        MaterialModule,
-        ComponentesModule,
-        RouterModule,
-        PrimegModule
-    ],
-    providers: [
-        { provide: TRANSLATE_HTTP_LOADER_CONFIG, useValue: { prefix: './assets/i18n/', suffix: '.json' } },
-        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-        authInterceptorProviders,
-        HTTP,
-    ] })
-export class AppModule {
-    constructor(injector: Injector) {
-        setLibraryInjector(injector as any);
-    }
+// Función de inicialización para registrar el Injector en tu librería sin romper el arranque
+export function initLibraryInjector(injector: Injector) {
+  return () => {
+    setLibraryInjector(injector as any);
+  };
 }
+
+@NgModule({
+  declarations: [AppComponent],
+  exports: [TranslateModule],
+  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    NgxsModule.forRoot([UsuariosState, ProductosState, CategoriaProductoState], {
+      developmentMode: !environment.production,
+    }),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient], // Dependencia requerida para TranslateHttpLoader
+      },
+    }),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsLoggerPluginModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MaterialModule,
+    ComponentesModule,
+    RouterModule,
+    PrimegModule,
+  ],
+  providers: [
+    {
+      provide: TRANSLATE_HTTP_LOADER_CONFIG,
+      useValue: { prefix: './assets/i18n/', suffix: '.json' },
+    },
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    authInterceptorProviders,
+    HTTP,
+    // Inicializador seguro del inyector usando APP_INITIALIZER
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initLibraryInjector,
+      deps: [Injector],
+      multi: true,
+    },
+  ],
+})
+export class AppModule {}

@@ -21,10 +21,10 @@ import { Menu } from 'src/assets/utils/enums/menu';
 })
 export class AppComponent {
   langs:string[]=[];
-  keywords:string;
-  seleccionada:string
+  keywords!: string;
+  seleccionada!: string;
 
-@Select(MenuState.getMenulist) menu$:Observable<MenuModel[]>;
+@Select(MenuState.getMenulist) menu$:Observable<MenuModel[]> | undefined;
 showWhatsappButton = false;
   showWhatsappModal = false;
   whatsappModalShown = false;
@@ -84,7 +84,7 @@ menuId:string ="inicio";
       if (id) {
         // Buscar producto en el store
         const productos = this.store.selectSnapshot(ProductosState.getProductos);
-        const producto = productos.find((p: ProductoDTO) => String(p.id) === String(id) || String(p.id) === String(id));
+        const producto = productos?.find((p: ProductoDTO) => String(p.id) === String(id) || String(p.id) === String(id));
         if (producto) {
           this.titleService.setTitle(`${producto.name}-inflable | Zigma Inflables`);
           this.metaService.addTag({ name: 'description', content: producto.descripcion + 'Conoce las características y detalles de nuestros inflables personalizados.' });
@@ -147,7 +147,7 @@ menuId:string ="inicio";
           }
       }
 
-      loadData(data){
+      loadData(data:any){
         console.log(data);
       }
 }
