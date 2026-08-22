@@ -11,15 +11,13 @@
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": {
-              "base": "www"
-            },
+            "preserveSymlinks": true,
+            "outputPath": "www",
             "index": "src/index.html",
-            "polyfills": [
-              "src/polyfills.ts"
-            ],
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -32,16 +30,24 @@
                 "output": "assets"
               },
               {
+                "glob": "**/*",
+                "input": "node_modules/svg-country-flags/svg",
+                "output": "assets/svg-country-flags/svg"
+              },
+              {
                 "glob": "**/*.svg",
                 "input": "node_modules/ionicons/dist/ionicons/svg",
                 "output": "./svg"
               }
             ],
             "styles": [
+               "node_modules/primeicons/primeicons.css",
+               "node_modules/primeflex/primeflex.css",
                "src/theme/variables.scss",
                "src/global.scss",
                "node_modules/prismjs/themes/prism.css",
-              "node_modules/tailwindcss/index.css"
+              "node_modules/tailwindcss/index.css",
+              "node_modules/ngx-countries-dropdown/assets/styles.css"
 
               ],
       
@@ -52,7 +58,6 @@
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true,
-            "browser": "src/main.ts",
             "stylePreprocessorOptions": {
               "includePaths": [
                 "."
@@ -60,6 +65,14 @@
             }
           },
           "configurations": {
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -90,9 +103,12 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "proxyConfig": "src/proxy.config.json",
-            "buildTarget": "app:build"
+            "buildTarget": "app:build:development"
           },
           "configurations": {
+            "development": {
+              "buildTarget": "app:build:development"
+            },
             "production": {
               "buildTarget": "app:build:production"
             },

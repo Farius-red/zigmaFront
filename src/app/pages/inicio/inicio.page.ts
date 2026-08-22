@@ -5,7 +5,7 @@ import { MenuModel } from 'src/app/core/modelos/menu/menu.Model';
 import { Router } from '@angular/router';
 import { BusinessDTO, CategoriaDTO, ProductoDTO} from '@juliaosistem/core-dtos';
 import { Store } from '@ngxs/store';
-import { ProductosActions,CategoriaproductoActions, ProductService, MetaDataService} from 'lib-common-angular';
+import { ProductosActions,CategoriaproductoActions } from 'lib-common-angular';
 
 @Component({
     selector: 'app-inicio',
@@ -36,7 +36,7 @@ export class InicioPage implements OnInit ,OnDestroy{
   }
 
   menuId:string = "inicio"
-  menu:Observable<MenuModel[]>
+  menu!: Observable<MenuModel[]>
 
   productosVO:ProductVO[]=[
     {
@@ -216,7 +216,6 @@ export class InicioPage implements OnInit ,OnDestroy{
   constructor(
     private router: Router,
     private store: Store,
-    private productSvc: ProductService,
     ) { }
 
   ngOnInit() {
@@ -254,10 +253,18 @@ ngOnDestroy() {
 
   private checkLoadingComplete() {
     if (this.bussinesDTO.productos && this.categorias) {
-        this.bussinesDTO.productos = this.productSvc.addNameCategoriaToProducts(this.bussinesDTO.productos, this.categorias)
+        this.bussinesDTO.productos = this.addNameCategoriaToProducts(this.bussinesDTO.productos, this.categorias);
           this.loading = false;
         };
     }
+
+  private addNameCategoriaToProducts(productos: ProductoDTO[], categorias: CategoriaDTO[]): ProductoDTO[] {
+    const categoriasById = new Map(categorias.map((item) => [String(item.id), item.nombreCategoria]));
+    return productos.map((item) => ({
+      ...item,
+      nombreCategoria: categoriasById.get(String(item.idCategoria)) || item.nombreCategoria,
+    }));
+  }
 	touchRedes(red: string) {
  
    
