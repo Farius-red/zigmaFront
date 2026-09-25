@@ -10,7 +10,6 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
-    
   },
   "private": true,
   "dependencies": {
@@ -41,12 +40,11 @@
     "bootstrap": "^4.6.1",
     "cordova-plugin-advanced-http": "^3.3.1",
     "country-state-city": "^3.2.1",
-    "svg-country-flags": "^1.2.10",
     "flag-icons": "^7.5.0",
     "jquery": "^3.7.1",
     "libphonenumber-js": "^1.11.19",
     "moment": "^2.29.1",
-    "ngx-countries-dropdown": "^5.0.0",
+    "ngx-countries-dropdown": "^6.0.0",
     "primeflex": "^4.0.0",
     "primeicons": "^7.0.0",
     "primeng": "^21.1.6",
@@ -54,6 +52,7 @@
     "quill": "^2.0.3",
     "raml2obj": "^6.8.1",
     "rxjs": "~7.8.2",
+    "svg-country-flags": "^1.2.10",
     "swiper": "^11.2.10",
     "tailwindcss-primeui": "^0.6.1",
     "tslib": "^2.8.1",
@@ -68,6 +67,7 @@
     "@angular/language-service": "^21.2.10",
     "@capacitor/cli": "^3.4.3",
     "@ionic/angular-toolkit": "^12.3.0",
+    "@playwright/test": "^1.62.1",
     "@types/jasmine": "~4.0.0",
     "@types/node": "^17.0.21",
     "@typescript-eslint/eslint-plugin": "5.15.0",
@@ -75,8 +75,7 @@
     "archiver": "^7.0.1",
     "eslint": "^8.11.0",
     "typescript": "^5.9.2",
-    "yaml": "^2.8.2",
-    "@playwright/test": "^1.62.1"
+    "yaml": "^2.8.2"
   },
   "description": "Proyecto para fabrica de inflables zigmainflables"
 }
