@@ -39,6 +39,12 @@
       "@angular/*": [
         "node_modules/@angular/*"
       ],
+      "primeng": [
+        "node_modules/primeng"
+      ],
+      "primeng/*": [
+        "node_modules/primeng/fesm2022/primeng-*.mjs"
+      ],
       "@ngx-translate/core": [
         "node_modules/@ngx-translate/core"
       ],
