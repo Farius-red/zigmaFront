@@ -27,6 +27,7 @@ const routes: Routes = [
       }
     },
     children:[
+      { path: 'register', redirectTo: 'registro', pathMatch: 'full' },
       {
             path: 'login',
             loadComponent: () =>

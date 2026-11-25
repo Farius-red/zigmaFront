@@ -1,6 +1,6 @@
 import { ProductVO } from './../../../core/modelos/productos/productVO';
 import { ProductState } from 'src/state/productos.state ';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Select, Store, } from '@ngxs/store';
 import { Observable } from 'rxjs/internal/Observable';
 import { getProducts } from 'src/state/productos.actions';
@@ -11,6 +11,7 @@ import { isEmpty } from 'rxjs';
     selector: 'app-card-padre',
     templateUrl: './card-padre.component.html',
     styleUrls: ['./card-padre.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class CardPadreComponent implements OnInit {

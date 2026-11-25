@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormGroup } from '@angular/forms';
 import { FormsAuthService } from 'src/app/core/servicios/formularios/forms-auth.service';
 
@@ -6,6 +6,7 @@ import { FormsAuthService } from 'src/app/core/servicios/formularios/forms-auth.
     selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class LoginComponent implements OnInit {

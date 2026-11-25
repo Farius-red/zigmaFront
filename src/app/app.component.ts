@@ -1,7 +1,7 @@
 import { MenuModel } from './core/modelos/menu/menu.Model';
 import { MenuState } from 'src/state/menu.state';
 import { getMenu } from './../state/menu.actions';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import {   TranslateService } from '@ngx-translate/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { NavigationEnd } from '@angular/router';
@@ -17,6 +17,7 @@ import { Menu } from 'src/assets/utils/enums/menu';
     selector: 'app-root',
     templateUrl: 'app.component.html',
     styleUrls: ['app.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class AppComponent {

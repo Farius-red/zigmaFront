@@ -1,5 +1,5 @@
 import { PlantillaResponse } from 'src/app/core/modelos/PlantillaResponse';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { RutinaState } from 'src/state/logicanegocio/wellnesfit/rutina.state';
@@ -14,6 +14,7 @@ import { Ejercicio } from 'src/app/core/modelos/logicaNegocio/wellnesfit/Ejercic
     selector: 'app-lista-rutinas',
     templateUrl: './lista-rutinas.component.html',
     styleUrls: ['./lista-rutinas.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ListaRutinasComponent implements OnInit {

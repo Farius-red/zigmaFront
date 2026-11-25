@@ -1,7 +1,7 @@
 
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Store } from '@ngxs/store';
+import { LibConfigService } from 'lib-common-angular';
 import { from, Observable } from 'rxjs';
 import { Platform } from '@ionic/angular';
 
@@ -11,26 +11,11 @@ type HttpMethod = 'get' | 'post' | 'put' | 'patch' | 'head' | 'delete' | 'upload
 export class AuthInterceptor implements HttpInterceptor{
     nativeHttp: any;
 
-    constructor(private store : Store, private platform: Platform,){
+    constructor(private config: LibConfigService, private platform: Platform,){
     }
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     
-        let authReq = req;
-        this.store.select(state => state.token)
-        let token;
-        let stateTokem = this.store.select(state => state.usuarios.token);
-        stateTokem.subscribe(res=> token=res);
-        if(token != null){
-            authReq = authReq.clone({
-                setHeaders:{Authorization:`Bearer ${token}`}
-            })
-        }
-
-        if (!req.headers.has('Content-Type')) {
-            req = req.clone({ headers: req.headers.set('Content-Type', 'application/json') }); 
-            }
-            req = req.clone({ headers: req.headers.set('Accept', '*/*') }); 
-            req = req.clone({ headers: req.headers.set('Access-Control-Allow-Headers', 'Authorization, Expires, Pragma, DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range') });
+        req = this.withSession(req);
          
             if (!this.platform.is('cordova')) { 
                 return next.handle(req);
@@ -38,9 +23,23 @@ export class AuthInterceptor implements HttpInterceptor{
             else{
                 return from(this.handleNativeRequest(req));
             }
-            
     }
 
+ private withSession(request: HttpRequest<unknown>): HttpRequest<unknown> {
+            const urls = Object.entries(this.config.getConfig())
+              .filter(([key, value]) => key.startsWith('baseUrl') && typeof value === 'string')
+              .map(([, value]) => String(value).replace(/\/$/, ''));
+            const target = new URL(request.url, window.location.origin);
+            const trusted = urls.some(url => {
+              const base = new URL(url, window.location.origin);
+              return target.origin === base.origin && (target.pathname === base.pathname || target.pathname.startsWith(base.pathname + '/'));
+            });
+            const isPublic = /\/user\/(login(?:\/social)?|add|refresh(?:-session)?|logout)$/.test(target.pathname);
+            const tokenKey = /\/user\/(valid|roles)$/.test(target.pathname) ? 'keycloakAccessToken' : 'businessToken';
+            const token = sessionStorage.getItem(tokenKey) || localStorage.getItem(tokenKey);
+            return trusted && !isPublic && token && !request.headers.has('Authorization')
+              ? request.clone({ setHeaders: { Authorization: `Bearer ${token}`, token } }) : request;
+ }
 
  private async handleNativeRequest(request: HttpRequest<any>): Promise<HttpResponse<any>> {
     const headerKeys = request.headers.keys();

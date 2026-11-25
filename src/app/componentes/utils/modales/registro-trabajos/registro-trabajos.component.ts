@@ -3,7 +3,7 @@ import { TipoMaterialesModel } from '../../../../core/modelos/logicaNegocio/zigm
 import { InflablesDisingModel } from '../../../../core/modelos/logicaNegocio/zigmainflables/dising/inflablesDising.Model';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { StepperOrientation, STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { Select, Store } from '@ngxs/store';
@@ -36,6 +36,7 @@ export interface UserData {
             useValue: { showError: true },
         },
     ],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 

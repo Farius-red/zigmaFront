@@ -2,7 +2,7 @@ import { AddUsuario } from './../../../../state/usuarios.actions';
 import { DatesUser } from './../../../core/modelos/Usuarios/UserVO.Model';
 import { UserVO } from 'src/app/core/modelos/Usuarios/UserVO.Model';
 import { FormsAuthService } from './../../../core/servicios/formularios/forms-auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormGroup, FormGroupName } from '@angular/forms';
 import { Store } from '@ngxs/store';
 
@@ -10,6 +10,7 @@ import { Store } from '@ngxs/store';
     selector: 'app-registro',
     templateUrl: './registro.component.html',
     styleUrls: ['./registro.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class RegistroComponent implements OnInit {

@@ -2,6 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "ignoreDeprecations": "6.0",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "esModuleInterop": true,
@@ -39,11 +40,23 @@
       "@angular/*": [
         "node_modules/@angular/*"
       ],
-      "primeng": [
-        "node_modules/primeng"
+      "@ngxs/store": [
+        "node_modules/@ngxs/store"
       ],
-      "primeng/*": [
-        "node_modules/primeng/fesm2022/primeng-*.mjs"
+      "@ngxs/store/*": [
+        "node_modules/@ngxs/store/*"
+      ],
+      "@ngxs/devtools-plugin": [
+        "node_modules/@ngxs/devtools-plugin"
+      ],
+      "@ngxs/devtools-plugin/*": [
+        "node_modules/@ngxs/devtools-plugin/*"
+      ],
+      "@ngxs/logger-plugin": [
+        "node_modules/@ngxs/logger-plugin"
+      ],
+      "@ngxs/logger-plugin/*": [
+        "node_modules/@ngxs/logger-plugin/*"
       ],
       "@ngx-translate/core": [
         "node_modules/@ngx-translate/core"

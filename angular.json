@@ -53,7 +53,7 @@
       
             "scripts": [  
             ],
-            "aot": false,
+            "aot": true,
             "extractLicenses": false,
             "sourceMap": true,
             "optimization": false,

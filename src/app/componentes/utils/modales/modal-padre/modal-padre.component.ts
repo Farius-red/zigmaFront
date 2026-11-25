@@ -1,11 +1,12 @@
 import { RegistroTrabajosComponent } from './../registro-trabajos/registro-trabajos.component';
 import { ModalController } from '@ionic/angular';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
     selector: 'app-modal-padre',
     templateUrl: './modal-padre.component.html',
     styleUrls: ['./modal-padre.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ModalPadreComponent implements OnInit {

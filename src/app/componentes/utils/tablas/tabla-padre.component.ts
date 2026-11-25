@@ -1,6 +1,6 @@
 import { PlantillaResponse } from './../../../core/modelos/PlantillaResponse';
 import { PlantillaTablas } from './../../../core/modelos/plantillas/PlantillaTablas';
-import { Component, OnInit,ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, ChangeDetectionStrategy } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 
 import {MatPaginator} from '@angular/material/paginator';
@@ -12,6 +12,7 @@ import { MatSort } from '@angular/material/sort';
     selector: 'app-tabla-padre',
     templateUrl: './tabla-padre.component.html',
     styleUrls: ['./tabla-padre.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class TablaPadreComponent<E> implements OnInit {

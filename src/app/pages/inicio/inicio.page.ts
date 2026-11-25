@@ -1,6 +1,6 @@
 import { ProductVO } from 'src/app/core/modelos/productos/productVO';
 import { Observable } from 'rxjs';
-import { Component, OnDestroy, OnInit,  } from '@angular/core';
+import { Component, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MenuModel } from 'src/app/core/modelos/menu/menu.Model';
 import { Router } from '@angular/router';
 import { BusinessDTO, CategoriaDTO, ProductoDTO} from '@juliaosistem/core-dtos';
@@ -11,6 +11,7 @@ import { ProductosActions,CategoriaproductoActions } from 'lib-common-angular';
     selector: 'app-inicio',
     templateUrl: './inicio.page.html',
     styleUrls: ['./inicio.page.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class InicioPage implements OnInit ,OnDestroy{

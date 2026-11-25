@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { FormsModule } from '@angular/forms';
@@ -11,6 +11,7 @@ import { ServiceThird } from 'src/app/core/servicios/formularios/service.third';
     selector: 'app-third-add-form',
     templateUrl: './add.FormComponent.html',
     styleUrls: ['./add.FormComponent.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class addFormComponent implements OnInit {
